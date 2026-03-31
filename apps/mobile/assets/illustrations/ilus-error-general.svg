@@ -1,0 +1,29 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Thermomix pot (lid slightly open) -->
+  <rect x="85" y="100" width="70" height="52" rx="8" fill="#D6D3D1"/>
+  <!-- Lid (tilted/lifted) -->
+  <rect x="82" y="88" width="62" height="12" rx="6" fill="#A8A29E" transform="rotate(-8 113 94)"/>
+
+  <!-- Spill (abstract shapes coming out) -->
+  <ellipse cx="158" cy="125" rx="12" ry="8" fill="#FFC9A8" opacity="0.5"/>
+  <ellipse cx="165" cy="115" rx="8" ry="6" fill="#FFAD7D" opacity="0.4"/>
+  <ellipse cx="152" cy="138" rx="10" ry="5" fill="#FFE4D4" opacity="0.4"/>
+  <!-- Small spill drops -->
+  <circle cx="170" cy="132" r="4" fill="#FFC9A8" opacity="0.35"/>
+  <circle cx="175" cy="108" r="3" fill="#FFAD7D" opacity="0.3"/>
+
+  <!-- Exclamation mark in circle (above, floating) -->
+  <circle cx="120" cy="58" r="20" fill="#EF4444"/>
+  <rect x="117" y="45" width="6" height="16" rx="3" fill="white"/>
+  <circle cx="120" cy="68" r="3.5" fill="white"/>
+
+  <!-- Pot handle -->
+  <rect x="155" y="118" width="16" height="7" rx="3.5" fill="#A8A29E"/>
+
+  <!-- Base line -->
+  <rect x="70" y="155" width="100" height="3" rx="1.5" fill="#F5F5F4"/>
+
+  <!-- Decorative -->
+  <circle cx="60" cy="100" r="2.5" fill="#E7E5E4" opacity="0.3"/>
+  <circle cx="190" cy="90" r="3" fill="#FFE4D4" opacity="0.3"/>
+</svg>

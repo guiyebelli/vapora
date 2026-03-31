@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "Vapora",
+    "slug": "vapora",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "scheme": "vapora",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#E85D2C"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vapora.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "CFBundleDisplayName": "Vapora"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#E85D2C"
+      },
+      "package": "com.vapora.app",
+      "versionCode": 1
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/cdc96786-6a6e-4df9-b9da-fab61a0159c6"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "cdc96786-6a6e-4df9-b9da-fab61a0159c6"
+      }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-localization"
+    ]
+  }
+}

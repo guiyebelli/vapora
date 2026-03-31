@@ -1,0 +1,67 @@
+# Dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# Native builds
+ios/
+android/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+
+# EAS
+.easignore
+/app.json
+/eas.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Screenshots raw (solo para composición, no se commitean)
+screenshots-raw/
+
+# ---- LOCAL ONLY (no se suben al repo público) ----
+
+# Claude Code — agentes, memoria, instrucciones
+CLAUDE.md
+
+# Documentación del proyecto — gestión, diseño, QA, memoria
+docs/
+
+# Assets de marca y store (los de la app están en apps/mobile/assets/)
+assets/
+
+# Scripts locales
+install-mcps.sh
+
+# Misc
+.cache/
+.temp/
+.turbo/
+.playwright-mcp/

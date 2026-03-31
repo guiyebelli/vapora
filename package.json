@@ -1,0 +1,17 @@
+{
+  "name": "vapora",
+  "version": "1.0.0",
+  "description": "Recetas libres para tu Thermomix.",
+  "private": true,
+  "scripts": {
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guiyebelli/vapora.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
+}
