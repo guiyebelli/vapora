@@ -4,13 +4,14 @@ import {
   View,
   Pressable,
   TextInput,
+  ScrollView,
   StyleSheet,
   Keyboard,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { Search, X, Clock } from 'lucide-react-native';
+import { Search, X, Clock, SlidersHorizontal } from 'lucide-react-native';
 
 import { Text, RecipeCard, Chip } from '@/components/ui';
 import { SectionHeader, EmptyState } from '@/components/layout';
@@ -19,9 +20,13 @@ import EmptySearchIlus from '../../assets/illustrations/ilus-empty-search.svg';
 import { useRecipeStore } from '@/store/useRecipeStore';
 import { useFavoritesStore } from '@/store/useFavoritesStore';
 import { useSearchStore } from '@/store/useSearchStore';
-import type { Recipe } from '@/types';
+import { categories } from '@/data/categories';
+import type { Recipe, CategoryId } from '@/types';
 
 const DEBOUNCE_MS = 300;
+
+const DIFFICULTY_OPTIONS = ['easy', 'medium', 'hard'] as const;
+const TIME_OPTIONS = [15, 30, 60, 120] as const;
 
 function searchRecipes(recipes: Recipe[], query: string, lang: 'es' | 'en'): Recipe[] {
   const q = query.toLowerCase().trim();
@@ -54,6 +59,22 @@ function searchRecipes(recipes: Recipe[], query: string, lang: 'es' | 'en'): Rec
     .map((r) => r.recipe);
 }
 
+function applyFilters(
+  recipes: Recipe[],
+  filters: {
+    category: CategoryId | null;
+    difficulty: Recipe['difficulty'] | null;
+    maxTime: number | null;
+  },
+): Recipe[] {
+  return recipes.filter((recipe) => {
+    if (filters.category && recipe.category !== filters.category) return false;
+    if (filters.difficulty && recipe.difficulty !== filters.difficulty) return false;
+    if (filters.maxTime && recipe.totalTime > filters.maxTime) return false;
+    return true;
+  });
+}
+
 export default function SearchScreen() {
   const { t, i18n } = useTranslation();
   const { theme } = useTheme();
@@ -66,18 +87,40 @@ export default function SearchScreen() {
   const [query, setQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState('');
   const [inputFocused, setInputFocused] = useState(true);
+  const [showFilters, setShowFilters] = useState(false);
+
+  // Filters state
+  const [filterCategory, setFilterCategory] = useState<CategoryId | null>(null);
+  const [filterDifficulty, setFilterDifficulty] = useState<Recipe['difficulty'] | null>(null);
+  const [filterMaxTime, setFilterMaxTime] = useState<number | null>(null);
+
+  const activeFilterCount = [filterCategory, filterDifficulty, filterMaxTime].filter(Boolean).length;
 
   useEffect(() => {
     const timer = setTimeout(() => setDebouncedQuery(query), DEBOUNCE_MS);
     return () => clearTimeout(timer);
   }, [query]);
 
-  const results = useMemo(
-    () => searchRecipes(recipes, debouncedQuery, lang),
-    [recipes, debouncedQuery, lang],
-  );
+  const results = useMemo(() => {
+    const filters = { category: filterCategory, difficulty: filterDifficulty, maxTime: filterMaxTime };
+    const hasFilters = activeFilterCount > 0;
+    const hasQuery = debouncedQuery.trim().length > 0;
+
+    if (hasQuery) {
+      const searched = searchRecipes(recipes, debouncedQuery, lang);
+      return hasFilters ? applyFilters(searched, filters) : searched;
+    }
+
+    if (hasFilters) {
+      return applyFilters(recipes, filters);
+    }
+
+    return [];
+  }, [recipes, debouncedQuery, lang, filterCategory, filterDifficulty, filterMaxTime, activeFilterCount]);
 
   const hasQuery = debouncedQuery.trim().length > 0;
+  const hasFilters = activeFilterCount > 0;
+  const showResults = hasQuery || hasFilters;
 
   const handleRecipePress = useCallback(
     (id: string) => {
@@ -105,6 +148,17 @@ export default function SearchScreen() {
     router.back();
   }, []);
 
+  const clearFilters = useCallback(() => {
+    setFilterCategory(null);
+    setFilterDifficulty(null);
+    setFilterMaxTime(null);
+  }, []);
+
+  const difficultyLabel = (d: string) => {
+    const map: Record<string, string> = { easy: t('difficulty.easy'), medium: t('difficulty.medium'), hard: t('difficulty.hard') };
+    return map[d] ?? d;
+  };
+
   const renderRecipe = useCallback(
     ({ item }: { item: Recipe }) => (
       <View style={styles.cardContainer}>
@@ -130,8 +184,8 @@ export default function SearchScreen() {
           style={[
             styles.inputContainer,
             {
-              backgroundColor: theme.background.secondary,
-              borderColor: inputFocused ? theme.accent : theme.border,
+              backgroundColor: theme.glass.input,
+              borderColor: inputFocused ? theme.accent : theme.glass.border,
             },
           ]}
         >
@@ -167,10 +221,79 @@ export default function SearchScreen() {
         </Pressable>
       </View>
 
+      {/* Filter toggle */}
+      <View style={styles.filterToggleRow}>
+        <Pressable
+          onPress={() => setShowFilters(!showFilters)}
+          style={[styles.filterToggle, { backgroundColor: showFilters || hasFilters ? theme.accent : theme.background.card }]}
+          accessibilityRole="button"
+          accessibilityLabel={t('search.filters')}
+        >
+          <SlidersHorizontal size={16} color={showFilters || hasFilters ? theme.text.inverse : theme.text.secondary} />
+          <Text variant="bodySmall" color={showFilters || hasFilters ? theme.text.inverse : theme.text.secondary}>
+            {hasFilters ? t('search.activeFilters', { count: activeFilterCount }) : t('search.filters')}
+          </Text>
+        </Pressable>
+        {hasFilters && (
+          <Pressable onPress={clearFilters} accessibilityRole="button" accessibilityLabel={t('search.clearFilters')}>
+            <Text variant="bodySmall" color={theme.accent}>{t('search.clearFilters')}</Text>
+          </Pressable>
+        )}
+      </View>
+
+      {/* Filter chips */}
+      {showFilters && (
+        <View style={styles.filtersContainer}>
+          {/* Category */}
+          <Text variant="caption" color={theme.text.tertiary} style={styles.filterLabel}>
+            {t('search.filterCategory')}
+          </Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.filterChipRow} contentContainerStyle={styles.filterChipContent}>
+            {categories.map((cat) => (
+              <Chip
+                key={cat.id}
+                label={cat.name[lang]}
+                selected={filterCategory === cat.id}
+                onPress={() => setFilterCategory(filterCategory === cat.id ? null : cat.id)}
+              />
+            ))}
+          </ScrollView>
+
+          {/* Difficulty */}
+          <Text variant="caption" color={theme.text.tertiary} style={styles.filterLabel}>
+            {t('search.filterDifficulty')}
+          </Text>
+          <View style={[styles.filterChipRow, styles.filterChipContent]}>
+            {DIFFICULTY_OPTIONS.map((d) => (
+              <Chip
+                key={d}
+                label={difficultyLabel(d)}
+                selected={filterDifficulty === d}
+                onPress={() => setFilterDifficulty(filterDifficulty === d ? null : d)}
+              />
+            ))}
+          </View>
+
+          {/* Time */}
+          <Text variant="caption" color={theme.text.tertiary} style={styles.filterLabel}>
+            {t('search.filterTime')}
+          </Text>
+          <View style={[styles.filterChipRow, styles.filterChipContent]}>
+            {TIME_OPTIONS.map((mins) => (
+              <Chip
+                key={mins}
+                label={t('search.filterTimeUpTo', { minutes: mins })}
+                selected={filterMaxTime === mins}
+                onPress={() => setFilterMaxTime(filterMaxTime === mins ? null : mins)}
+              />
+            ))}
+          </View>
+        </View>
+      )}
+
       {/* Content */}
-      {hasQuery ? (
+      {showResults ? (
         <>
-          {/* Results header */}
           <View style={styles.resultsHeader}>
             <Text variant="bodySmall" color={theme.text.secondary}>
               {t('search.results', { count: results.length })}
@@ -180,7 +303,7 @@ export default function SearchScreen() {
           {results.length === 0 ? (
             <EmptyState
               illustration={<EmptySearchIlus width={140} height={140} />}
-              title={t('search.noResults', { query: debouncedQuery })}
+              title={hasQuery ? t('search.noResults', { query: debouncedQuery }) : t('search.noResultsFilters')}
               message={t('search.noResultsHint')}
             />
           ) : (
@@ -195,7 +318,6 @@ export default function SearchScreen() {
           )}
         </>
       ) : (
-        /* Recents + Suggestions */
         <FlatList
           data={[]}
           renderItem={null}
@@ -203,7 +325,6 @@ export default function SearchScreen() {
           showsVerticalScrollIndicator={false}
           ListHeaderComponent={
             <>
-              {/* Recent searches */}
               {recentSearches.length > 0 && (
                 <View style={styles.section}>
                   <SectionHeader title={t('search.recent')} />
@@ -230,7 +351,6 @@ export default function SearchScreen() {
                 </View>
               )}
 
-              {/* Suggestion chips */}
               <View style={styles.section}>
                 <SectionHeader title={t('search.suggestions')} />
                 <View style={styles.chipRow}>
@@ -279,6 +399,36 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     paddingVertical: spacing.sm,
+  },
+  filterToggleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing.md,
+    paddingBottom: spacing.sm,
+  },
+  filterToggle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: radius.full,
+  },
+  filtersContainer: {
+    paddingBottom: spacing.md,
+  },
+  filterLabel: {
+    paddingHorizontal: spacing.md,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.xs,
+  },
+  filterChipRow: {
+    flexDirection: 'row',
+  },
+  filterChipContent: {
+    paddingHorizontal: spacing.md,
+    gap: spacing.xs,
   },
   resultsHeader: {
     paddingHorizontal: spacing.md,
