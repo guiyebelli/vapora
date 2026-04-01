@@ -169,6 +169,8 @@ function StepTimer({ seconds: initialSeconds, accent, theme: th }: { seconds: nu
         duration: secondsLeft * 1000,
         useNativeDriver: false,
       }).start();
+    } else {
+      progressAnim.stopAnimation();
     }
   }, [running]); // eslint-disable-line react-hooks/exhaustive-deps
 

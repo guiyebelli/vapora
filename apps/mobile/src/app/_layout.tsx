@@ -1,12 +1,14 @@
 import '@/i18n';
 import { useEffect } from 'react';
-import { View, useColorScheme } from 'react-native';
-import { LoadingSpinner } from '@/components/ui';
+import { useColorScheme } from 'react-native';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import * as SplashScreen from 'expo-splash-screen';
 import { ThemeProvider, useTheme, useFontsLoaded } from '@/theme';
-import { colors } from '@/theme';
 import { useSettingsStore } from '@/store/useSettingsStore';
+
+// Keep splash visible until fonts are loaded
+SplashScreen.preventAutoHideAsync();
 
 function RootStack() {
   const { isDark } = useTheme();
@@ -42,23 +44,16 @@ function RootStack() {
 
 export default function RootLayout() {
   const fontsLoaded = useFontsLoaded();
-  const systemScheme = useColorScheme();
-  const isDarkFallback = systemScheme === 'dark';
+  useColorScheme(); // Keep for system theme detection
+
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
 
   if (!fontsLoaded) {
-    return (
-      <View style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: isDarkFallback ? colors.neutral[900] : colors.neutral[0],
-      }}>
-        <LoadingSpinner
-          size={64}
-          color={isDarkFallback ? colors.primary[400] : colors.primary[500]}
-        />
-      </View>
-    );
+    return null; // Splash screen stays visible
   }
 
   return (
