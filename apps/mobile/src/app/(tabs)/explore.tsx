@@ -74,11 +74,11 @@ export default function ExploreScreen() {
       style={[styles.safeArea, { backgroundColor: theme.background.primary }]}
       edges={['top']}
     >
-      <Text variant="h1" style={styles.header}>
+      <Text variant="h1" style={styles.header} accessibilityRole="header">
         {t('explore.title')}
       </Text>
 
-      <Pressable onPress={handleSearchPress} style={styles.searchContainer}>
+      <Pressable onPress={handleSearchPress} style={styles.searchContainer} accessibilityRole="button" accessibilityLabel={t('common.search')}>
         <View pointerEvents="none">
           <Input
             placeholder={t('common.search')}

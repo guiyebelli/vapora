@@ -25,7 +25,7 @@ describe('Input', () => {
     renderWithTheme(
       <Input placeholder="Buscar..." value="test" onClear={onClear} />,
     );
-    fireEvent.press(screen.getByLabelText('Limpiar'));
+    fireEvent.press(screen.getByLabelText('common.clear'));
     expect(onClear).toHaveBeenCalledTimes(1);
   });
 
@@ -33,6 +33,6 @@ describe('Input', () => {
     renderWithTheme(
       <Input placeholder="Buscar..." value="" onClear={jest.fn()} />,
     );
-    expect(screen.queryByLabelText('Limpiar')).toBeNull();
+    expect(screen.queryByLabelText('common.clear')).toBeNull();
   });
 });

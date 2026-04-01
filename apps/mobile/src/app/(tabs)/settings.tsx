@@ -89,7 +89,7 @@ export default function SettingsScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <Text variant="h1" style={styles.header}>
+        <Text variant="h1" style={styles.header} accessibilityRole="header">
           {t('settings.title')}
         </Text>
 

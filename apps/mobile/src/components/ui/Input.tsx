@@ -7,6 +7,7 @@ import {
   TextInputProps,
   ViewStyle,
 } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { radius, spacing, fontFamily, useTheme } from '@/theme';
 import { Text } from './Text';
 
@@ -30,6 +31,7 @@ export function Input({
 }: InputProps) {
   const [focused, setFocused] = useState(false);
   const { theme } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <View
@@ -64,7 +66,7 @@ export function Input({
         <Pressable
           onPress={onClear}
           accessibilityRole="button"
-          accessibilityLabel="Limpiar"
+          accessibilityLabel={t('common.clear')}
           hitSlop={8}
           style={styles.clearButton}
         >

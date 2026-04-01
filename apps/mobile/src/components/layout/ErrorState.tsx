@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { spacing, useTheme } from '@/theme';
 import { Text } from '../ui/Text';
 import { Button } from '../ui/Button';
@@ -12,6 +13,7 @@ interface ErrorStateProps {
 
 export function ErrorState({ message, onRetry, illustration }: ErrorStateProps) {
   const { theme } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <View style={styles.container}>
@@ -27,7 +29,7 @@ export function ErrorState({ message, onRetry, illustration }: ErrorStateProps) 
       >
         {message}
       </Text>
-      <Button title="Reintentar" onPress={onRetry} variant="primary" />
+      <Button title={t('common.retry')} onPress={onRetry} variant="primary" />
     </View>
   );
 }

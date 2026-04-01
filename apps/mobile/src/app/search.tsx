@@ -159,7 +159,7 @@ export default function SearchScreen() {
           )}
         </View>
 
-        <Pressable onPress={handleCancel} style={styles.cancelButton}>
+        <Pressable onPress={handleCancel} style={styles.cancelButton} accessibilityRole="button" accessibilityLabel={t('common.cancel')}>
           <Text variant="body" color={theme.accent}>
             {t('search.cancel')}
           </Text>

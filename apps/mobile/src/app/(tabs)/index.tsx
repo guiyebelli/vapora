@@ -101,12 +101,12 @@ export default function HomeScreen() {
         showsVerticalScrollIndicator={false}
       >
         {/* Header */}
-        <Text variant="h1" color={theme.accent} style={styles.header}>
+        <Text variant="h1" color={theme.accent} style={styles.header} accessibilityRole="header">
           Vapora
         </Text>
 
         {/* Search bar (read-only, navigates to /search) */}
-        <Pressable onPress={handleSearchPress} style={styles.searchContainer}>
+        <Pressable onPress={handleSearchPress} style={styles.searchContainer} accessibilityRole="button" accessibilityLabel={t('common.search')}>
           <View pointerEvents="none">
             <Input
               placeholder={t('common.search')}
