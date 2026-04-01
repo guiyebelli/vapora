@@ -6,6 +6,7 @@ import { spacing, radius, shadows, colors, useTheme } from '@/theme';
 import { Text } from './Text';
 import type { Recipe } from '@/types';
 import { categories } from '@/data/categories';
+import { categoryIcons } from '@/data/categoryIcons';
 
 interface RecipeCardProps {
   recipe: Recipe;
@@ -73,7 +74,10 @@ export function RecipeCard({
             { backgroundColor: placeholderBg ?? theme.background.secondary },
           ]}
         >
-          <Text style={styles.emoji}>{category?.icon ?? '🍽️'}</Text>
+          {categoryIcons[recipe.category]
+            ? React.createElement(categoryIcons[recipe.category], { width: 48, height: 48, color: isDark ? theme.text.primary : theme.text.secondary })
+            : <Text style={styles.emoji}>🍽️</Text>
+          }
         </View>
 
         <View style={styles.content}>

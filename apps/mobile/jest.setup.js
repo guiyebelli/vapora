@@ -90,3 +90,14 @@ jest.mock('expo-router', () => ({
   Tabs: 'Tabs',
   Stack: 'Stack',
 }));
+
+// Mock categoryIcons (SVGs imported as components)
+jest.mock('@/data/categoryIcons', () => {
+  const React = require('react');
+  const mockIcon = React.forwardRef((props, ref) =>
+    React.createElement('View', { ...props, ref, testID: 'category-icon' }),
+  );
+  return {
+    categoryIcons: new Proxy({}, { get: () => mockIcon }),
+  };
+});
