@@ -192,7 +192,8 @@
   "about": {
     "title": "About Vapora",
     "description": "Vapora is a free, open-source app to explore recipes optimized for Thermomix TM5 and TM6. Made with ♡ by the community.",
-    "disclaimer": "Vapora is not affiliated with Vorwerk or Thermomix. Thermomix is a registered trademark of Vorwerk."
+    "disclaimer": "Vapora is not affiliated with Vorwerk or Thermomix. Thermomix is a registered trademark of Vorwerk.",
+    "openSource": "Open source on GitHub"
   },
   "units": {
     "g": "g",

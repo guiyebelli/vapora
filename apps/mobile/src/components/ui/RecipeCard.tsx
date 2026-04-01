@@ -1,7 +1,8 @@
-import React from 'react';
-import { Pressable, View, StyleSheet } from 'react-native';
+import React, { useMemo, useCallback } from 'react';
+import { Pressable, View, StyleSheet, Animated } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { spacing, radius, shadows, useTheme } from '@/theme';
+import { Heart } from 'lucide-react-native';
+import { spacing, radius, shadows, colors, useTheme } from '@/theme';
 import { Text } from './Text';
 import type { Recipe } from '@/types';
 import { categories } from '@/data/categories';
@@ -36,6 +37,23 @@ export function RecipeCard({
   const { t } = useTranslation();
   const category = getCategoryInfo(recipe.category);
   const placeholderBg = isDark ? category?.colorDark : category?.color;
+  const scaleAnim = useMemo(() => new Animated.Value(1), []);
+
+  const handleFavoritePress = useCallback(() => {
+    Animated.sequence([
+      Animated.timing(scaleAnim, {
+        toValue: 1.3,
+        duration: 150,
+        useNativeDriver: true,
+      }),
+      Animated.timing(scaleAnim, {
+        toValue: 1,
+        duration: 150,
+        useNativeDriver: true,
+      }),
+    ]).start();
+    onFavoritePress();
+  }, [onFavoritePress, scaleAnim]);
 
   return (
     <View style={[styles.shadowWrapper, { backgroundColor: theme.background.card }]}>
@@ -69,7 +87,7 @@ export function RecipeCard({
         </View>
 
         <Pressable
-          onPress={onFavoritePress}
+          onPress={handleFavoritePress}
           accessibilityRole="button"
           accessibilityLabel={
             isFavorite ? t('recipe.removeFavorite') : t('recipe.addFavorite')
@@ -77,7 +95,13 @@ export function RecipeCard({
           hitSlop={8}
           style={[styles.favoriteButton, { backgroundColor: theme.background.primary + 'CC' }]}
         >
-          <Text style={styles.heart}>{isFavorite ? '❤️' : '🤍'}</Text>
+          <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
+            <Heart
+              size={20}
+              color={isFavorite ? colors.primary[500] : theme.text.tertiary}
+              fill={isFavorite ? colors.primary[500] : 'none'}
+            />
+          </Animated.View>
         </Pressable>
       </Pressable>
     </View>
@@ -85,12 +109,10 @@ export function RecipeCard({
 }
 
 const styles = StyleSheet.create({
-  // Outer wrapper: handles shadow + borderRadius, no overflow clipping
   shadowWrapper: {
     borderRadius: radius.xl,
     ...shadows.md,
   },
-  // Inner pressable: handles overflow clipping for borderRadius
   container: {
     borderRadius: radius.xl,
     overflow: 'hidden',
@@ -124,8 +146,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: radius.full,
-  },
-  heart: {
-    fontSize: 20,
   },
 });

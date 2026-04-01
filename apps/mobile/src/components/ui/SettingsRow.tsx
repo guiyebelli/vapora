@@ -1,27 +1,80 @@
 import React from 'react';
-import { Pressable, View, StyleSheet } from 'react-native';
+import { Pressable, Switch, View, StyleSheet } from 'react-native';
 import { ChevronRight } from 'lucide-react-native';
 import { spacing, radius, useTheme } from '@/theme';
 import { Text } from './Text';
 
 interface SettingsRowProps {
-  icon: string;
   label: string;
   value?: string;
-  onPress: () => void;
+  onPress?: () => void;
+  icon?: string;
   isFirst?: boolean;
   isLast?: boolean;
+  // Switch mode
+  switchValue?: boolean;
+  onSwitchChange?: (value: boolean) => void;
+  // Custom right element
+  rightElement?: React.ReactNode;
 }
 
 export function SettingsRow({
-  icon,
   label,
   value,
   onPress,
+  icon,
   isFirst = false,
   isLast = false,
+  switchValue,
+  onSwitchChange,
+  rightElement,
 }: SettingsRowProps) {
   const { theme } = useTheme();
+
+  const isSwitch = switchValue !== undefined && onSwitchChange !== undefined;
+
+  const content = (
+    <>
+      {icon ? <Text style={styles.icon}>{icon}</Text> : null}
+      <Text variant="body" style={[styles.label, !icon && styles.labelNoIcon]}>{label}</Text>
+      {rightElement ?? null}
+      {isSwitch ? (
+        <Switch
+          value={switchValue}
+          onValueChange={onSwitchChange}
+          trackColor={{ false: theme.border, true: theme.accent }}
+          thumbColor="#FFFFFF"
+          accessibilityRole="switch"
+          accessibilityLabel={label}
+        />
+      ) : (
+        <>
+          {value ? (
+            <Text variant="bodySmall" color={theme.text.tertiary} style={styles.value}>
+              {value}
+            </Text>
+          ) : null}
+          <ChevronRight size={16} color={theme.text.tertiary} />
+        </>
+      )}
+    </>
+  );
+
+  if (isSwitch) {
+    return (
+      <View
+        style={[
+          styles.row,
+          { backgroundColor: theme.background.card + 'CC' },
+          isFirst && styles.first,
+          isLast && styles.last,
+        ]}
+        accessibilityLabel={label}
+      >
+        {content}
+      </View>
+    );
+  }
 
   return (
     <Pressable
@@ -30,19 +83,12 @@ export function SettingsRow({
       accessibilityLabel={value ? `${label}, ${value}` : label}
       style={({ pressed }) => [
         styles.row,
-        { backgroundColor: pressed ? theme.border : theme.background.card },
+        { backgroundColor: pressed ? theme.border : theme.background.card + 'CC' },
         isFirst && styles.first,
         isLast && styles.last,
       ]}
     >
-      <Text style={styles.icon}>{icon}</Text>
-      <Text variant="body" style={styles.label}>{label}</Text>
-      {value ? (
-        <Text variant="bodySmall" color={theme.text.tertiary} style={styles.value}>
-          {value}
-        </Text>
-      ) : null}
-      <ChevronRight size={16} color={theme.text.tertiary} />
+      {content}
     </Pressable>
   );
 }
@@ -55,7 +101,7 @@ export function SettingsGroup({ children }: SettingsGroupProps) {
   const { theme } = useTheme();
 
   return (
-    <View style={[styles.group, { borderColor: theme.border }]}>
+    <View style={[styles.group, { borderColor: theme.border + '80' }]}>
       {React.Children.map(children, (child, index) => {
         const count = React.Children.count(children);
         if (!React.isValidElement(child)) return child;
@@ -66,7 +112,7 @@ export function SettingsGroup({ children }: SettingsGroupProps) {
               isLast: index === count - 1,
             })}
             {index < count - 1 && (
-              <View style={[styles.separator, { backgroundColor: theme.border }]} />
+              <View style={[styles.separator, { backgroundColor: theme.border + '60' }]} />
             )}
           </>
         );
@@ -118,16 +164,20 @@ const styles = StyleSheet.create({
     flex: 1,
     marginLeft: spacing.sm,
   },
+  labelNoIcon: {
+    marginLeft: 0,
+  },
   value: {
     marginRight: spacing.sm,
   },
   group: {
     borderRadius: radius.lg,
     overflow: 'hidden',
+    borderWidth: StyleSheet.hairlineWidth,
   },
   separator: {
     height: StyleSheet.hairlineWidth,
-    marginLeft: 56,
+    marginLeft: spacing.md,
   },
   sectionLabel: {
     paddingLeft: spacing.md,
