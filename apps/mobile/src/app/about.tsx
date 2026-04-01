@@ -4,10 +4,9 @@ import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import Constants from 'expo-constants';
 
-import { Text } from '@/components/ui';
+import { Text, AnimatedLogo } from '@/components/ui';
 import { ScreenWrapper } from '@/components/layout';
 import { useTheme, spacing } from '@/theme';
-import LogoIcon from '../../assets/illustrations/logo-icon.svg';
 
 export default function AboutScreen() {
   const { t } = useTranslation();
@@ -22,7 +21,7 @@ export default function AboutScreen() {
       >
         {/* Logo + Version */}
         <View style={styles.logoSection}>
-          <LogoIcon width={120} height={120} />
+          <AnimatedLogo size={120} />
           <Text variant="h1" color={theme.accent}>Vapora</Text>
           <Text variant="body" color={theme.text.secondary}>
             {t('onboarding.welcomeSub')}

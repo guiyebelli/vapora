@@ -10,10 +10,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
-import { Text, RecipeCard, Chip, Input, SectionHeader } from '@/components';
+import { Text, RecipeCard, Chip, Input, SectionHeader, AnimatedLogo } from '@/components';
 import { Search as SearchIcon } from 'lucide-react-native';
 import { useTheme, spacing } from '@/theme';
-import LogoIcon from '../../../assets/illustrations/logo-icon.svg';
 import { useRecipeStore } from '@/store/useRecipeStore';
 import { useFavoritesStore } from '@/store/useFavoritesStore';
 import { categories } from '@/data/categories';
@@ -103,7 +102,7 @@ export default function HomeScreen() {
       >
         {/* Header */}
         <View style={styles.headerRow}>
-          <LogoIcon width={32} height={32} />
+          <AnimatedLogo size={32} />
           <Text variant="h1" color={theme.accent} accessibilityRole="header">
             Vapora
           </Text>

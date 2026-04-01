@@ -1,2 +1,2 @@
-export { Text, Button, RecipeCard, Chip, Input, Skeleton } from './ui';
+export { Text, Button, RecipeCard, Chip, Input, Skeleton, AnimatedLogo } from './ui';
 export { EmptyState, ErrorState, SectionHeader } from './layout';
