@@ -1,11 +1,11 @@
 import React from 'react';
 import {
   Pressable,
-  ActivityIndicator,
   StyleSheet,
 } from 'react-native';
 import { colors, radius, textStyles, useTheme } from '@/theme';
 import { Text } from './Text';
+import { LoadingSpinner } from './LoadingSpinner';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
 type ButtonSize = 'sm' | 'md' | 'lg';
@@ -83,7 +83,7 @@ export function Button({
       ]}
     >
       {loading ? (
-        <ActivityIndicator color={variantConf.loaderColor} />
+        <LoadingSpinner size={sizeConf.height * 0.5} color={variantConf.loaderColor} />
       ) : (
         <Text
           variant={sizeConf.textVariant}

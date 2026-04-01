@@ -1,6 +1,7 @@
 import '@/i18n';
 import { useEffect } from 'react';
-import { ActivityIndicator, View, useColorScheme } from 'react-native';
+import { View, useColorScheme } from 'react-native';
+import { LoadingSpinner } from '@/components/ui';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider, useTheme, useFontsLoaded } from '@/theme';
@@ -52,8 +53,8 @@ export default function RootLayout() {
         justifyContent: 'center',
         backgroundColor: isDarkFallback ? colors.neutral[900] : colors.neutral[0],
       }}>
-        <ActivityIndicator
-          size="large"
+        <LoadingSpinner
+          size={64}
           color={isDarkFallback ? colors.primary[400] : colors.primary[500]}
         />
       </View>
