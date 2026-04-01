@@ -2,9 +2,9 @@ import { colors } from './colors';
 
 export const lightTheme = {
   background: {
-    primary: colors.neutral[0],
-    secondary: colors.neutral[50],
-    card: colors.neutral[100],
+    primary: '#FFFBF7',
+    secondary: '#FFF8F2',
+    card: '#FFFFFF',
   },
   text: {
     primary: colors.neutral[800],
@@ -26,9 +26,9 @@ export const lightTheme = {
 
 export const darkTheme = {
   background: {
-    primary: colors.neutral[900],
-    secondary: colors.neutral[800],
-    card: colors.neutral[800],
+    primary: '#1A1614',
+    secondary: '#241F1B',
+    card: '#2E2722',
   },
   text: {
     primary: colors.neutral[50],
