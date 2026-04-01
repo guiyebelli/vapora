@@ -1,5 +1,5 @@
 import React, { useMemo, useCallback } from 'react';
-import { Pressable, View, StyleSheet, Animated } from 'react-native';
+import { Pressable, TouchableOpacity, View, StyleSheet, Animated } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { Heart } from 'lucide-react-native';
 import { spacing, radius, shadows, colors, useTheme } from '@/theme';
@@ -58,15 +58,12 @@ export function RecipeCard({
 
   return (
     <View style={[styles.shadowWrapper, { backgroundColor: theme.background.card }]}>
-      <Pressable
+      <TouchableOpacity
         onPress={onPress}
-        accessibilityRole="button"
+        activeOpacity={0.85}
+        accessibilityRole="link"
         accessibilityLabel={recipe.title.es}
-        style={({ pressed }) => [
-          styles.container,
-          { backgroundColor: theme.background.card },
-          pressed && styles.pressed,
-        ]}
+        style={[styles.container, { backgroundColor: theme.background.card }]}
       >
         <View
           style={[
@@ -107,7 +104,7 @@ export function RecipeCard({
             />
           </Animated.View>
         </Pressable>
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 }

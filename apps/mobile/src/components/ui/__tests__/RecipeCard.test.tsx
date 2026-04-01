@@ -73,7 +73,7 @@ describe('RecipeCard', () => {
     renderWithTheme(
       <RecipeCard recipe={mockRecipe} onPress={jest.fn()} onFavoritePress={jest.fn()} isFavorite={false} />,
     );
-    const buttons = screen.getAllByRole('button');
-    expect(buttons.length).toBe(2);
+    expect(screen.getByRole('link')).toBeTruthy();
+    expect(screen.getByRole('button')).toBeTruthy();
   });
 });
