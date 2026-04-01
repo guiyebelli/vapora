@@ -81,6 +81,7 @@ export default function RecipeDetailScreen() {
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.background.primary }]}
+      edges={['top']}
     >
       {/* Header bar */}
       <View style={[styles.header, { borderBottomColor: theme.border }]}>

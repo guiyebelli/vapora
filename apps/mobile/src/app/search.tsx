@@ -122,6 +122,7 @@ export default function SearchScreen() {
   return (
     <SafeAreaView
       style={[styles.safeArea, { backgroundColor: theme.background.primary }]}
+      edges={['top']}
     >
       {/* Search bar + Cancel */}
       <View style={styles.searchRow}>
