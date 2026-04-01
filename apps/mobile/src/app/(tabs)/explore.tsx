@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { Text, Input } from '@/components/ui';
 import { Search as SearchIcon } from 'lucide-react-native';
 import { SectionHeader } from '@/components/layout';
-import { useTheme, spacing, radius, shadows } from '@/theme';
+import { useTheme, spacing, radius } from '@/theme';
 import { useRecipeStore } from '@/store/useRecipeStore';
 import { categories } from '@/data/categories';
 import { categoryIcons } from '@/data/categoryIcons';
@@ -54,9 +54,7 @@ export default function ExploreScreen() {
           {
             width: cardSize,
             height: cardSize,
-            backgroundColor: (isDark ? item.colorDark : item.color) + 'B3',
-            borderWidth: StyleSheet.hairlineWidth,
-            borderColor: theme.glass.border,
+            backgroundColor: isDark ? item.colorDark : item.color,
           },
           pressed && styles.categoryPressed,
         ]}
@@ -67,7 +65,7 @@ export default function ExploreScreen() {
         </Text>
       </Pressable>
     ),
-    [handleCategoryPress, lang, t, cardSize, isDark, theme.glass.border, theme.text.primary, theme.text.secondary],
+    [handleCategoryPress, lang, t, cardSize, isDark, theme.text.primary, theme.text.secondary],
   );
 
   return (
@@ -131,7 +129,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: spacing.xs,
-    ...shadows.sm,
   },
   categoryPressed: {
     opacity: 0.85,
