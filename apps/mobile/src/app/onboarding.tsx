@@ -1,11 +1,13 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import {
   View,
-  FlatList,
+  ScrollView,
   Pressable,
+  TouchableOpacity,
   StyleSheet,
   useWindowDimensions,
-  type ViewToken,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
@@ -38,7 +40,7 @@ export default function OnboardingScreen() {
   const [selectedModel, setSelectedModel] = useState<TMModel>('both');
   const [currentStep, setCurrentStep] = useState(0);
 
-  const flatListRef = useRef<FlatList>(null);
+  const scrollViewRef = useRef<ScrollView>(null);
 
   const handleLanguageSelect = useCallback(
     (lang: Language) => {
@@ -50,14 +52,13 @@ export default function OnboardingScreen() {
 
   const handleNext = useCallback(() => {
     if (currentStep < TOTAL_STEPS - 1) {
-      flatListRef.current?.scrollToIndex({ index: currentStep + 1, animated: true });
+      scrollViewRef.current?.scrollTo({ x: width * (currentStep + 1), animated: true });
     } else {
-      // Step 4: finish
       setTMModel(selectedModel);
       completeOnboarding();
       router.replace('/(tabs)');
     }
-  }, [currentStep, selectedModel, setTMModel, completeOnboarding]);
+  }, [currentStep, selectedModel, setTMModel, completeOnboarding, width]);
 
   const handleSkip = useCallback(() => {
     setLanguage(deviceLang);
@@ -66,16 +67,16 @@ export default function OnboardingScreen() {
     router.replace('/(tabs)');
   }, [deviceLang, setLanguage, setTMModel, completeOnboarding]);
 
-  const onViewableItemsChanged = useCallback(
-    ({ viewableItems }: { viewableItems: ViewToken[] }) => {
-      if (viewableItems.length > 0 && viewableItems[0].index != null) {
-        setCurrentStep(viewableItems[0].index);
+  const handleScroll = useCallback(
+    (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+      const offsetX = event.nativeEvent.contentOffset.x;
+      const step = Math.round(offsetX / width);
+      if (step !== currentStep && step >= 0 && step < TOTAL_STEPS) {
+        setCurrentStep(step);
       }
     },
-    [],
+    [width, currentStep],
   );
-
-  const viewabilityConfig = useMemo(() => ({ viewAreaCoveragePercentThreshold: 50 }), []);
 
   // --- Step content renderers ---
 
@@ -177,11 +178,6 @@ export default function OnboardingScreen() {
     </View>
   );
 
-  const renderItem = ({ index }: { item: number; index: number }) => {
-    const renderers = [renderStep1, renderStep2, renderStep3, renderStep4];
-    return renderers[index]();
-  };
-
   return (
     <SafeAreaView style={[styles.safeArea, { backgroundColor: theme.background.primary }]}>
       {/* Skip button */}
@@ -197,20 +193,21 @@ export default function OnboardingScreen() {
       </Pressable>
 
       {/* Pages */}
-      <FlatList
-        ref={flatListRef}
-        data={[0, 1, 2, 3]}
-        renderItem={renderItem}
-        keyExtractor={(item) => String(item)}
+      <ScrollView
+        ref={scrollViewRef}
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         bounces={false}
-        onViewableItemsChanged={onViewableItemsChanged}
-        viewabilityConfig={viewabilityConfig}
+        onScroll={handleScroll}
         scrollEventThrottle={16}
         style={styles.pager}
-      />
+      >
+        {renderStep1()}
+        {renderStep2()}
+        {renderStep3()}
+        {renderStep4()}
+      </ScrollView>
 
       {/* Dots */}
       <View style={styles.dotsRow}>
@@ -257,9 +254,11 @@ function LanguageOption({
   theme: ReturnType<typeof useTheme>['theme'];
 }) {
   return (
-    <Pressable
+    <TouchableOpacity
       onPress={onPress}
+      activeOpacity={0.7}
       accessibilityRole="radio"
+      accessibilityLabel={`${flag} ${label}`}
       accessibilityState={{ selected }}
       style={[
         styles.optionRow,
@@ -269,7 +268,7 @@ function LanguageOption({
       <Text style={styles.optionFlag}>{flag}</Text>
       <Text variant="body" style={styles.optionLabel}>{label}</Text>
       {selected && <Check size={20} color={theme.accent} />}
-    </Pressable>
+    </TouchableOpacity>
   );
 }
 
@@ -285,9 +284,11 @@ function ModelOption({
   theme: ReturnType<typeof useTheme>['theme'];
 }) {
   return (
-    <Pressable
+    <TouchableOpacity
       onPress={onPress}
+      activeOpacity={0.7}
       accessibilityRole="radio"
+      accessibilityLabel={label}
       accessibilityState={{ selected }}
       style={[
         styles.optionRow,
@@ -296,7 +297,7 @@ function ModelOption({
     >
       <Text variant="body" style={styles.optionLabel}>{label}</Text>
       {selected && <Check size={20} color={theme.accent} />}
-    </Pressable>
+    </TouchableOpacity>
   );
 }
 
