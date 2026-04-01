@@ -31,14 +31,13 @@ const TM_MODEL_OPTIONS = [
 
 export default function SettingsScreen() {
   const { t } = useTranslation();
-  const { theme } = useTheme();
+  const { theme, isDark } = useTheme();
   const router = useRouter();
   const [activeSheet, setActiveSheet] = useState<SheetType>(null);
 
   const {
     language,
     tmModel,
-    theme: themeMode,
     setLanguage,
     setTMModel,
     setTheme,
@@ -54,7 +53,7 @@ export default function SettingsScreen() {
     both: t('settings.tmBoth'),
   }[tmModel];
 
-  const isDarkMode = themeMode === 'dark';
+  const isDarkMode = isDark;
 
   const tmOptions = TM_MODEL_OPTIONS.map((o) => ({
     ...o,
