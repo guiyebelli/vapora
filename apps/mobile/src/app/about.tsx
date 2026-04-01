@@ -1,12 +1,11 @@
 import React from 'react';
 import { View, ScrollView, Pressable, StyleSheet, Linking } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { ChevronLeft } from 'lucide-react-native';
 import Constants from 'expo-constants';
 
 import { Text } from '@/components/ui';
+import { ScreenWrapper } from '@/components/layout';
 import { useTheme, spacing } from '@/theme';
 import LogoIcon from '../../assets/illustrations/logo-icon.svg';
 
@@ -16,26 +15,7 @@ export default function AboutScreen() {
   const version = Constants.expoConfig?.version ?? '1.0.0';
 
   return (
-    <SafeAreaView
-      style={[styles.container, { backgroundColor: theme.background.primary }]}
-    >
-      {/* Header */}
-      <View style={[styles.header, { borderBottomColor: theme.border }]}>
-        <Pressable
-          onPress={() => router.back()}
-          accessibilityRole="button"
-          accessibilityLabel={t('common.back')}
-          hitSlop={12}
-          style={styles.backButton}
-        >
-          <ChevronLeft size={24} color={theme.text.primary} />
-        </Pressable>
-        <Text variant="body" style={styles.headerTitle}>
-          {t('about.title')}
-        </Text>
-        <View style={styles.headerSpacer} />
-      </View>
-
+    <ScreenWrapper title={t('about.title')} onBack={() => router.back()}>
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
@@ -76,31 +56,11 @@ export default function AboutScreen() {
           </Pressable>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </ScreenWrapper>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  backButton: {
-    padding: spacing.xs,
-  },
-  headerTitle: {
-    flex: 1,
-    textAlign: 'center',
-  },
-  headerSpacer: {
-    width: 32,
-  },
   scrollContent: {
     paddingBottom: spacing['2xl'],
   },

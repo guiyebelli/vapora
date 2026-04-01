@@ -62,6 +62,7 @@ export default function CategoryScreen() {
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: theme.background.primary }]}
+      edges={['top']}
     >
       {/* Header */}
       <View style={[styles.header, { borderBottomColor: theme.border }]}>
