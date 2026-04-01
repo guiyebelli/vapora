@@ -6,8 +6,9 @@ module.exports = {
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    '\\.svg$': '<rootDir>/src/__mocks__/svgMock.js',
   },
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.expo/'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.expo/', 'fixtures\\.ts$'],
   collectCoverageFrom: [
     'src/store/**/*.ts',
     'src/components/**/*.tsx',
