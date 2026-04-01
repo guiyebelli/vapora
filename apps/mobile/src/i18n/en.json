@@ -190,6 +190,16 @@
     "measuring_cup": "Measuring cup",
     "blade_cover": "Blade cover"
   },
+  "cooking": {
+    "stepOf": "Step {{current}} of {{total}}",
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Reset",
+    "previous": "Previous",
+    "next": "Next",
+    "finish": "Finish",
+    "startCooking": "Start cooking mode"
+  },
   "about": {
     "title": "About Vapora",
     "description": "Vapora is a free, open-source app to explore recipes optimized for Thermomix TM5 and TM6. Made with ♡ by the community.",

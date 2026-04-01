@@ -190,6 +190,16 @@
     "measuring_cup": "Cubilete",
     "blade_cover": "Tapa de cuchillas"
   },
+  "cooking": {
+    "stepOf": "Paso {{current}} de {{total}}",
+    "start": "Iniciar",
+    "pause": "Pausar",
+    "reset": "Reiniciar",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "finish": "Finalizar",
+    "startCooking": "Iniciar modo cocina"
+  },
   "about": {
     "title": "Sobre Vapora",
     "description": "Vapora es una app gratuita y de código abierto para explorar recetas optimizadas para Thermomix TM5 y TM6. Creada con ♡ por la comunidad.",
