@@ -26,7 +26,7 @@ export const darkTheme = {
   text: {
     primary: colors.neutral[50],
     secondary: colors.neutral[400],
-    tertiary: colors.neutral[500],
+    tertiary: colors.neutral[400],
     inverse: colors.neutral[900],
   },
   border: colors.neutral[700],

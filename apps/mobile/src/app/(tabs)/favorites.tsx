@@ -133,7 +133,7 @@ export default function FavoritesScreen() {
         style={[styles.safeArea, { backgroundColor: theme.background.primary }]}
         edges={['top']}
       >
-        <Text variant="h1" style={styles.header}>
+        <Text variant="h1" style={styles.header} accessibilityRole="header">
           {t('favorites.title')}
         </Text>
         <EmptyState

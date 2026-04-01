@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pressable, View, StyleSheet } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { spacing, radius, shadows, useTheme } from '@/theme';
 import { Text } from './Text';
 import type { Recipe } from '@/types';
@@ -32,6 +33,7 @@ export function RecipeCard({
   isFavorite,
 }: RecipeCardProps) {
   const { theme, isDark } = useTheme();
+  const { t } = useTranslation();
   const category = getCategoryInfo(recipe.category);
   const placeholderBg = isDark ? category?.colorDark : category?.color;
 
@@ -70,7 +72,7 @@ export function RecipeCard({
           onPress={onFavoritePress}
           accessibilityRole="button"
           accessibilityLabel={
-            isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'
+            isFavorite ? t('recipe.removeFavorite') : t('recipe.addFavorite')
           }
           hitSlop={8}
           style={[styles.favoriteButton, { backgroundColor: theme.background.primary + 'CC' }]}

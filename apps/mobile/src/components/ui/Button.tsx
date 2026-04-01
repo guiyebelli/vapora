@@ -70,6 +70,7 @@ export function Button({
       accessibilityRole="button"
       accessibilityLabel={title}
       accessibilityState={{ disabled: disabled || loading }}
+      hitSlop={sizeConf.height < 44 ? { top: (44 - sizeConf.height) / 2, bottom: (44 - sizeConf.height) / 2 } : undefined}
       style={({ pressed }) => [
         styles.base,
         variantConf.container,

@@ -45,6 +45,7 @@ export function Chip({
       accessibilityRole="button"
       accessibilityLabel={label}
       accessibilityState={{ selected }}
+      hitSlop={{ top: 6, bottom: 6, left: 4, right: 4 }}
       style={[styles.container, { backgroundColor: variantConf.bg }]}
     >
       {icon ? <Text style={styles.icon}>{icon}</Text> : null}
