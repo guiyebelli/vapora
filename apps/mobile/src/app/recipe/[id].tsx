@@ -16,6 +16,7 @@ import { useRecipeStore } from '@/store/useRecipeStore';
 import { useFavoritesStore } from '@/store/useFavoritesStore';
 import { useTheme, spacing, radius, colors } from '@/theme';
 import { categories } from '@/data/categories';
+import { categoryIcons } from '@/data/categoryIcons';
 import type { ThermomixSettings } from '@/types/recipe';
 
 export default function RecipeDetailScreen() {
@@ -117,8 +118,8 @@ export default function RecipeDetailScreen() {
         >
           <Heart
             size={22}
-            color={isFavorite ? colors.semantic.error : theme.text.secondary}
-            fill={isFavorite ? colors.semantic.error : 'transparent'}
+            color={isFavorite ? colors.primary[500] : theme.text.secondary}
+            fill={isFavorite ? colors.primary[500] : 'transparent'}
           />
         </Pressable>
 
@@ -145,7 +146,10 @@ export default function RecipeDetailScreen() {
             { backgroundColor: (isDark ? category?.colorDark : category?.color) ?? theme.background.secondary },
           ]}
         >
-          <Text style={styles.heroEmoji}>{category?.icon ?? '🍽️'}</Text>
+          {recipe.category && categoryIcons[recipe.category]
+            ? React.createElement(categoryIcons[recipe.category], { width: 72, height: 72, color: isDark ? theme.text.primary : theme.text.secondary })
+            : null
+          }
         </View>
 
         {/* Title */}
@@ -170,7 +174,7 @@ export default function RecipeDetailScreen() {
             label={t('recipe.servings', { count: recipe.servings })}
           />
           {recipe.thermomixModel.map((model) => (
-            <Chip key={model} label={model} variant="category" />
+            <Chip key={model} label={model} variant="tm" />
           ))}
         </View>
 
@@ -192,8 +196,8 @@ export default function RecipeDetailScreen() {
             </Text>
           </View>
 
-          {recipe.ingredients.map((ingredient) => (
-            <View key={ingredient.id} style={[styles.ingredientRow, { borderBottomColor: theme.border }]}>
+          {recipe.ingredients.map((ingredient, index) => (
+            <View key={ingredient.id} style={[styles.ingredientRow, index < recipe.ingredients.length - 1 && { borderBottomColor: theme.border, borderBottomWidth: StyleSheet.hairlineWidth }]}>
               <Text variant="body" color={theme.text.primary}>
                 <Text variant="body" color={theme.text.primary} style={styles.bold}>
                   {ingredient.amount} {ingredient.unit}
@@ -242,13 +246,13 @@ export default function RecipeDetailScreen() {
                   <View
                     style={[
                       styles.tmSettingsRow,
-                      { backgroundColor: theme.accentLight },
+                      { backgroundColor: theme.background.secondary },
                     ]}
                   >
                     {step.thermomixSettings.speed != null && (
                       <Chip
                         label={formatSpeed(step.thermomixSettings.speed)}
-                        variant="category"
+                        variant="tm"
                       />
                     )}
                     {step.thermomixSettings.temperature != null && (
@@ -256,7 +260,7 @@ export default function RecipeDetailScreen() {
                         label={formatTemperature(
                           step.thermomixSettings.temperature,
                         )}
-                        variant="category"
+                        variant="tm"
                       />
                     )}
                     {step.thermomixSettings.time != null && (
@@ -264,7 +268,7 @@ export default function RecipeDetailScreen() {
                         label={t('recipe.minutes', {
                           count: step.thermomixSettings.time,
                         })}
-                        variant="category"
+                        variant="tm"
                       />
                     )}
                   </View>
@@ -343,11 +347,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  heroEmoji: {
-    fontSize: 72,
-    lineHeight: 96,
-    textAlign: 'center',
-  },
   section: {
     paddingHorizontal: spacing.md,
     paddingTop: spacing.lg,
@@ -367,7 +366,6 @@ const styles = StyleSheet.create({
   },
   ingredientRow: {
     paddingVertical: spacing.xs,
-    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   bold: {
     fontWeight: '700',
