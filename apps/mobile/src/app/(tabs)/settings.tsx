@@ -11,10 +11,10 @@ import {
   SettingsGroup,
   SectionLabel,
   SelectorSheet,
+  AnimatedLogo,
 } from '@/components/ui';
 import { useTheme, spacing } from '@/theme';
 import { useSettingsStore } from '@/store/useSettingsStore';
-import LogoIcon from '../../../assets/illustrations/logo-icon.svg';
 
 type SheetType = 'language' | 'tmModel' | null;
 
@@ -114,7 +114,7 @@ export default function SettingsScreen() {
 
         {/* Footer */}
         <View style={styles.footer}>
-          <LogoIcon width={48} height={48} />
+          <AnimatedLogo size={48} />
           <Text variant="caption" color={theme.text.tertiary}>
             Vapora
           </Text>
