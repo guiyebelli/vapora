@@ -53,7 +53,9 @@ export default function ExploreScreen() {
           {
             width: cardSize,
             height: cardSize,
-            backgroundColor: isDark ? item.colorDark : item.color,
+            backgroundColor: (isDark ? item.colorDark : item.color) + 'B3',
+            borderWidth: StyleSheet.hairlineWidth,
+            borderColor: theme.glass.border,
           },
           pressed && styles.categoryPressed,
         ]}
@@ -67,7 +69,7 @@ export default function ExploreScreen() {
         </Text>
       </Pressable>
     ),
-    [handleCategoryPress, lang, t, cardSize, isDark, theme.text.secondary],
+    [handleCategoryPress, lang, t, cardSize, isDark, theme.text.secondary, theme.glass.border],
   );
 
   return (

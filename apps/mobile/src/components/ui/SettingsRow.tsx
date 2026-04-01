@@ -42,7 +42,7 @@ export function SettingsRow({
         <Switch
           value={switchValue}
           onValueChange={onSwitchChange}
-          trackColor={{ false: theme.border, true: theme.accent }}
+          trackColor={{ false: theme.glass.border, true: theme.accent }}
           thumbColor="#FFFFFF"
           accessibilityRole="switch"
           accessibilityLabel={label}
@@ -65,7 +65,7 @@ export function SettingsRow({
       <View
         style={[
           styles.row,
-          { backgroundColor: theme.background.card + 'CC' },
+          { backgroundColor: theme.glass.card },
           isFirst && styles.first,
           isLast && styles.last,
         ]}
@@ -83,7 +83,7 @@ export function SettingsRow({
       accessibilityLabel={value ? `${label}, ${value}` : label}
       style={({ pressed }) => [
         styles.row,
-        { backgroundColor: pressed ? theme.border : theme.background.card + 'CC' },
+        { backgroundColor: pressed ? theme.glass.overlay : theme.glass.card },
         isFirst && styles.first,
         isLast && styles.last,
       ]}
@@ -101,7 +101,7 @@ export function SettingsGroup({ children }: SettingsGroupProps) {
   const { theme } = useTheme();
 
   return (
-    <View style={[styles.group, { borderColor: theme.border + '80' }]}>
+    <View style={[styles.group, { borderColor: theme.glass.border }]}>
       {React.Children.map(children, (child, index) => {
         const count = React.Children.count(children);
         if (!React.isValidElement(child)) return child;
@@ -112,7 +112,7 @@ export function SettingsGroup({ children }: SettingsGroupProps) {
               isLast: index === count - 1,
             })}
             {index < count - 1 && (
-              <View style={[styles.separator, { backgroundColor: theme.border + '60' }]} />
+              <View style={[styles.separator, { backgroundColor: theme.glass.border }]} />
             )}
           </>
         );

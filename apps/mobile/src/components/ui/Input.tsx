@@ -38,8 +38,8 @@ export function Input({
       style={[
         styles.container,
         {
-          backgroundColor: theme.background.secondary,
-          borderColor: focused ? theme.accent : theme.border,
+          backgroundColor: theme.glass.input,
+          borderColor: focused ? theme.accent : theme.glass.border,
         },
         style,
       ]}

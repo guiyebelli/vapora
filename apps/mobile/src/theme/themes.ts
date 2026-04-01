@@ -15,6 +15,13 @@ export const lightTheme = {
   border: colors.neutral[200],
   accent: colors.primary[500],
   accentLight: colors.primary[50],
+  glass: {
+    background: 'rgba(255, 255, 255, 0.65)',
+    border: 'rgba(255, 255, 255, 0.5)',
+    card: 'rgba(245, 245, 244, 0.7)',
+    input: 'rgba(250, 250, 249, 0.8)',
+    overlay: 'rgba(255, 255, 255, 0.3)',
+  },
 } as const;
 
 export const darkTheme = {
@@ -32,6 +39,13 @@ export const darkTheme = {
   border: colors.neutral[700],
   accent: colors.primary[400],
   accentLight: colors.primary[900],
+  glass: {
+    background: 'rgba(28, 25, 23, 0.65)',
+    border: 'rgba(255, 255, 255, 0.1)',
+    card: 'rgba(41, 37, 36, 0.7)',
+    input: 'rgba(41, 37, 36, 0.8)',
+    overlay: 'rgba(255, 255, 255, 0.05)',
+  },
 } as const;
 
 export type Theme = {
@@ -40,4 +54,11 @@ export type Theme = {
   border: string;
   accent: string;
   accentLight: string;
+  glass: {
+    background: string;
+    border: string;
+    card: string;
+    input: string;
+    overlay: string;
+  };
 };
