@@ -5,6 +5,7 @@ import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
 import { Text, Input } from '@/components/ui';
+import { Search as SearchIcon } from 'lucide-react-native';
 import { SectionHeader } from '@/components/layout';
 import { useTheme, spacing, radius, shadows } from '@/theme';
 import { useRecipeStore } from '@/store/useRecipeStore';
@@ -83,7 +84,7 @@ export default function ExploreScreen() {
           <Input
             placeholder={t('common.search')}
             editable={false}
-            leftIcon={<Text style={styles.searchIcon}>🔍</Text>}
+            leftIcon={<SearchIcon size={18} color={theme.text.tertiary} />}
           />
         </View>
       </Pressable>
@@ -116,9 +117,6 @@ const styles = StyleSheet.create({
   searchContainer: {
     paddingHorizontal: spacing.md,
     paddingBottom: spacing.sm,
-  },
-  searchIcon: {
-    fontSize: 16,
   },
   gridContent: {
     paddingBottom: spacing['2xl'],

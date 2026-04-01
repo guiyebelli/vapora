@@ -11,7 +11,9 @@ import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
 import { Text, RecipeCard, Chip, Input, SectionHeader } from '@/components';
+import { Search as SearchIcon } from 'lucide-react-native';
 import { useTheme, spacing } from '@/theme';
+import LogoIcon from '../../../assets/illustrations/logo-icon.svg';
 import { useRecipeStore } from '@/store/useRecipeStore';
 import { useFavoritesStore } from '@/store/useFavoritesStore';
 import { categories } from '@/data/categories';
@@ -101,9 +103,12 @@ export default function HomeScreen() {
         showsVerticalScrollIndicator={false}
       >
         {/* Header */}
-        <Text variant="h1" color={theme.accent} style={styles.header} accessibilityRole="header">
-          Vapora
-        </Text>
+        <View style={styles.headerRow}>
+          <LogoIcon width={32} height={32} />
+          <Text variant="h1" color={theme.accent} accessibilityRole="header">
+            Vapora
+          </Text>
+        </View>
 
         {/* Search bar (read-only, navigates to /search) */}
         <Pressable onPress={handleSearchPress} style={styles.searchContainer} accessibilityRole="button" accessibilityLabel={t('common.search')}>
@@ -111,7 +116,7 @@ export default function HomeScreen() {
             <Input
               placeholder={t('common.search')}
               editable={false}
-              leftIcon={<Text style={styles.searchIcon}>🔍</Text>}
+              leftIcon={<SearchIcon size={18} color={theme.text.tertiary} />}
             />
           </View>
         </Pressable>
@@ -179,7 +184,10 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingBottom: spacing['2xl'],
   },
-  header: {
+  headerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
     paddingHorizontal: spacing.md,
     paddingTop: spacing.md,
     paddingBottom: spacing.sm,
@@ -187,9 +195,6 @@ const styles = StyleSheet.create({
   searchContainer: {
     paddingHorizontal: spacing.md,
     paddingBottom: spacing.md,
-  },
-  searchIcon: {
-    fontSize: 16,
   },
   chipList: {
     paddingHorizontal: spacing.md,

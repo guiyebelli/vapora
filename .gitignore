@@ -55,7 +55,7 @@ CLAUDE.md
 docs/
 
 # Assets de marca y store (los de la app están en apps/mobile/assets/)
-assets/
+/assets/
 
 # Scripts locales
 install-mcps.sh
