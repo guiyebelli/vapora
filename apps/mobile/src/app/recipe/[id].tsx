@@ -16,6 +16,7 @@ import { useRecipeStore } from '@/store/useRecipeStore';
 import { useFavoritesStore } from '@/store/useFavoritesStore';
 import { useTheme, spacing, radius, colors } from '@/theme';
 import { categories } from '@/data/categories';
+import { categoryIcons } from '@/data/categoryIcons';
 import type { ThermomixSettings } from '@/types/recipe';
 
 export default function RecipeDetailScreen() {
@@ -117,8 +118,8 @@ export default function RecipeDetailScreen() {
         >
           <Heart
             size={22}
-            color={isFavorite ? colors.semantic.error : theme.text.secondary}
-            fill={isFavorite ? colors.semantic.error : 'transparent'}
+            color={isFavorite ? colors.primary[500] : theme.text.secondary}
+            fill={isFavorite ? colors.primary[500] : 'transparent'}
           />
         </Pressable>
 
@@ -145,7 +146,10 @@ export default function RecipeDetailScreen() {
             { backgroundColor: (isDark ? category?.colorDark : category?.color) ?? theme.background.secondary },
           ]}
         >
-          <Text style={styles.heroEmoji}>{category?.icon ?? '🍽️'}</Text>
+          {recipe.category && categoryIcons[recipe.category]
+            ? React.createElement(categoryIcons[recipe.category], { width: 72, height: 72, color: isDark ? theme.text.primary : theme.text.secondary })
+            : null
+          }
         </View>
 
         {/* Title */}
@@ -342,11 +346,6 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  heroEmoji: {
-    fontSize: 72,
-    lineHeight: 96,
-    textAlign: 'center',
   },
   section: {
     paddingHorizontal: spacing.md,
