@@ -1,28 +1,30 @@
 <svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Globe -->
-  <circle cx="120" cy="110" r="45" fill="#22A860" opacity="0.15"/>
-  <circle cx="120" cy="110" r="45" stroke="#22A860" stroke-width="2" fill="none" opacity="0.4"/>
-  <!-- Continent shapes (abstract) -->
-  <ellipse cx="108" cy="100" rx="15" ry="20" fill="#22A860" opacity="0.25"/>
-  <ellipse cx="138" cy="115" rx="12" ry="16" fill="#22A860" opacity="0.2"/>
-  <!-- Equator line -->
-  <ellipse cx="120" cy="110" rx="45" ry="12" stroke="#22A860" stroke-width="1" fill="none" opacity="0.2"/>
-  <!-- Meridian -->
-  <ellipse cx="120" cy="110" rx="12" ry="45" stroke="#22A860" stroke-width="1" fill="none" opacity="0.2"/>
+  <!-- Language: globo con burbujas de chat -->
 
-  <!-- Chat bubble "Hola" (left, primary) -->
-  <rect x="38" y="58" width="60" height="32" rx="16" fill="#E85D2C"/>
-  <polygon points="68,90 62,90 72,100" fill="#E85D2C"/>
-  <text x="68" y="79" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="white" text-anchor="middle">Hola</text>
+  <!-- Globo terráqueo -->
+  <circle cx="120" cy="110" r="50" fill="#88D888" opacity="0.25"/>
+  <circle cx="120" cy="110" r="50" stroke="#22A860" stroke-width="2.5" fill="none" opacity="0.5"/>
+  <!-- Continentes abstractos -->
+  <ellipse cx="105" cy="98" rx="18" ry="24" fill="#22A860" opacity="0.2"/>
+  <ellipse cx="140" cy="118" rx="14" ry="18" fill="#22A860" opacity="0.18"/>
+  <!-- Líneas del globo -->
+  <ellipse cx="120" cy="110" rx="50" ry="14" stroke="#22A860" stroke-width="1" fill="none" opacity="0.15"/>
+  <ellipse cx="120" cy="110" rx="14" ry="50" stroke="#22A860" stroke-width="1" fill="none" opacity="0.15"/>
 
-  <!-- Chat bubble "Hello" (right, neutral) -->
-  <rect x="142" y="68" width="62" height="32" rx="16" fill="#D6D3D1"/>
-  <polygon points="172,100 178,100 168,110" fill="#D6D3D1"/>
-  <text x="173" y="89" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#44403C" text-anchor="middle">Hello</text>
+  <!-- Burbuja "Hola" (izquierda, naranja) -->
+  <rect x="25" y="52" width="68" height="36" rx="18" fill="#E85D2C"/>
+  <path d="M65 88L58 88L72 102Z" fill="#E85D2C"/>
+  <text x="59" y="76" font-family="sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">Hola</text>
 
-  <!-- Decorative dots -->
-  <circle cx="50" cy="140" r="3" fill="#FFC9A8" opacity="0.4"/>
-  <circle cx="190" cy="135" r="4" fill="#A3E4BD" opacity="0.3"/>
-  <circle cx="85" cy="155" r="2" fill="#FFAD7D" opacity="0.3"/>
-  <circle cx="160" cy="50" r="3" fill="#D1F2DE" opacity="0.4"/>
+  <!-- Burbuja "Hello" (derecha, dorado) -->
+  <rect x="148" y="62" width="70" height="36" rx="18" fill="#E8C87A"/>
+  <path d="M178 98L185 98L175 112Z" fill="#E8C87A"/>
+  <text x="183" y="86" font-family="sans-serif" font-size="16" font-weight="700" fill="#5C4A1A" text-anchor="middle">Hello</text>
+
+  <!-- Partículas -->
+  <circle cx="40" cy="140" r="3.5" fill="#FFE0CC" opacity="0.4"/>
+  <circle cx="200" cy="135" r="4" fill="#D4F0E0" opacity="0.4"/>
+  <circle cx="55" cy="38" r="2.5" fill="#FFAD7D" opacity="0.35"/>
+  <circle cx="185" cy="42" r="3" fill="#88D888" opacity="0.35"/>
+  <circle cx="120" cy="170" r="3" fill="#FFE0CC" opacity="0.3"/>
 </svg>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { AlertTriangle } from 'lucide-react-native';
 import { spacing, useTheme } from '@/theme';
 import { Text } from '../ui/Text';
 import { Button } from '../ui/Button';
@@ -20,7 +21,9 @@ export function ErrorState({ message, onRetry, illustration }: ErrorStateProps) 
       {illustration ? (
         <View style={styles.illustration}>{illustration}</View>
       ) : (
-        <Text style={styles.icon}>⚠️</Text>
+        <View style={styles.icon}>
+          <AlertTriangle size={48} color={theme.accent} />
+        </View>
       )}
       <Text
         variant="body"
@@ -42,8 +45,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.xl,
   },
   icon: {
-    fontSize: 48,
     marginBottom: spacing.md,
+    alignItems: 'center',
   },
   illustration: {
     marginBottom: spacing.lg,

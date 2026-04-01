@@ -10,7 +10,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { Check } from 'lucide-react-native';
+import { Check, Gift, Globe, Cpu } from 'lucide-react-native';
 import { getLocales } from 'expo-localization';
 
 import { Text, Button } from '@/components/ui';
@@ -98,15 +98,15 @@ export default function OnboardingScreen() {
       <View style={styles.content}>
         <View style={styles.featureList}>
           {[
-            { icon: '🆓', title: t('onboarding.featureFreeTitle'), sub: t('onboarding.featureFreeSub') },
-            { icon: '🌍', title: t('onboarding.featureBilingualTitle'), sub: t('onboarding.featureBilingualSub') },
-            { icon: '🤖', title: t('onboarding.featureTMTitle'), sub: t('onboarding.featureTMSub') },
+            { key: 'free', icon: <Gift size={24} color={theme.accent} />, title: t('onboarding.featureFreeTitle'), sub: t('onboarding.featureFreeSub') },
+            { key: 'bilingual', icon: <Globe size={24} color={theme.accent} />, title: t('onboarding.featureBilingualTitle'), sub: t('onboarding.featureBilingualSub') },
+            { key: 'tm', icon: <Cpu size={24} color={theme.accent} />, title: t('onboarding.featureTMTitle'), sub: t('onboarding.featureTMSub') },
           ].map((feature) => (
             <View
-              key={feature.icon}
+              key={feature.key}
               style={[styles.featureCard, { backgroundColor: theme.background.card }]}
             >
-              <Text style={styles.featureIcon}>{feature.icon}</Text>
+              <View style={styles.featureIcon}>{feature.icon}</View>
               <View style={styles.featureText}>
                 <Text variant="h3">{feature.title}</Text>
                 <Text variant="bodySmall" color={theme.text.secondary}>
@@ -345,10 +345,10 @@ const styles = StyleSheet.create({
     gap: spacing.md,
   },
   featureIcon: {
-    fontSize: 32,
-    lineHeight: 42,
-    textAlign: 'center',
     width: 40,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   featureText: {
     flex: 1,
