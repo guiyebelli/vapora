@@ -6,3 +6,4 @@ export { Input } from './Input';
 export { Skeleton } from './Skeleton';
 export { SettingsRow, SettingsGroup, SectionLabel } from './SettingsRow';
 export { SelectorSheet } from './SelectorSheet';
+export { AnimatedLogo } from './AnimatedLogo';
