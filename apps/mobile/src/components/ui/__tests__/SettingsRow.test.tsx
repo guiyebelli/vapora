@@ -8,11 +8,10 @@ function renderWithTheme(ui: React.ReactElement) {
 }
 
 describe('SettingsRow', () => {
-  it('renders icon, label and value', () => {
+  it('renders label and value', () => {
     renderWithTheme(
-      <SettingsRow icon="🌐" label="Language" value="EN" onPress={jest.fn()} />,
+      <SettingsRow label="Language" value="EN" onPress={jest.fn()} />,
     );
-    expect(screen.getByText('🌐')).toBeTruthy();
     expect(screen.getByText('Language')).toBeTruthy();
     expect(screen.getByText('EN')).toBeTruthy();
   });
@@ -20,7 +19,7 @@ describe('SettingsRow', () => {
   it('calls onPress when pressed', () => {
     const onPress = jest.fn();
     renderWithTheme(
-      <SettingsRow icon="🌐" label="Language" onPress={onPress} />,
+      <SettingsRow label="Language" onPress={onPress} />,
     );
     fireEvent.press(screen.getByRole('button'));
     expect(onPress).toHaveBeenCalledTimes(1);
@@ -28,14 +27,14 @@ describe('SettingsRow', () => {
 
   it('has combined accessibility label with value', () => {
     renderWithTheme(
-      <SettingsRow icon="🌐" label="Language" value="EN" onPress={jest.fn()} />,
+      <SettingsRow label="Language" value="EN" onPress={jest.fn()} />,
     );
     expect(screen.getByLabelText('Language, EN')).toBeTruthy();
   });
 
   it('has label-only accessibility label without value', () => {
     renderWithTheme(
-      <SettingsRow icon="ℹ️" label="About" onPress={jest.fn()} />,
+      <SettingsRow label="About" onPress={jest.fn()} />,
     );
     expect(screen.getByLabelText('About')).toBeTruthy();
   });
@@ -45,8 +44,8 @@ describe('SettingsGroup', () => {
   it('renders children', () => {
     renderWithTheme(
       <SettingsGroup>
-        <SettingsRow icon="🌐" label="Language" onPress={jest.fn()} />
-        <SettingsRow icon="🎨" label="Theme" onPress={jest.fn()} />
+        <SettingsRow label="Language" onPress={jest.fn()} />
+        <SettingsRow label="Theme" onPress={jest.fn()} />
       </SettingsGroup>,
     );
     expect(screen.getByText('Language')).toBeTruthy();

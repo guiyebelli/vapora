@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vapora — Category Icons Preview v2</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, sans-serif; background: #1A1614; color: #FAFAF9; padding: 40px; }
+  h1 { font-size: 24px; margin-bottom: 8px; color: #FF8C5A; }
+  p { font-size: 14px; color: #A8A29E; margin-bottom: 40px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 800px; }
+  .card {
+    text-align: center;
+    padding: 24px 16px;
+    border-radius: 20px;
+    transition: transform 0.2s;
+  }
+  .card:hover { transform: scale(1.05); }
+  .card img { width: 64px; height: 64px; margin-bottom: 12px; }
+  .card .name { font-size: 14px; font-weight: 600; }
+  .card .size { font-size: 11px; color: #78716C; margin-top: 4px; }
+  .section { margin-top: 48px; }
+  .section h2 { font-size: 18px; color: #FAFAF9; margin-bottom: 16px; }
+  .row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .row img { border-radius: 12px; }
+  .bg-light { background: #FFFBF7; padding: 40px; border-radius: 24px; margin-top: 24px; }
+  .bg-light .name { color: #292524; }
+  .bg-light .size { color: #A8A29E; }
+</style>
+</head>
+<body>
+  <h1>Vapora — Iconos de Categoría v2</h1>
+  <p>Estilo: filled suave con detalle. Cada icono cuenta algo sobre la categoría.</p>
+
+  <!-- Dark mode -->
+  <div class="grid">
+    <div class="card" style="background:#3D2518">
+      <img src="cat-desserts.svg"><div class="name">Postres</div>
+      <div class="size">Torta + cereza</div>
+    </div>
+    <div class="card" style="background:#3D3518">
+      <img src="cat-breads.svg"><div class="name">Panes</div>
+      <div class="size">Pan + vapor</div>
+    </div>
+    <div class="card" style="background:#18352A">
+      <img src="cat-soups.svg"><div class="name">Sopas</div>
+      <div class="size">Olla + cuchara</div>
+    </div>
+    <div class="card" style="background:#3D1818">
+      <img src="cat-sauces.svg"><div class="name">Salsas</div>
+      <div class="size">Cuchara + gota</div>
+    </div>
+    <div class="card" style="background:#182A3D">
+      <img src="cat-drinks.svg"><div class="name">Bebidas</div>
+      <div class="size">Taza + vapor</div>
+    </div>
+    <div class="card" style="background:#2A183D">
+      <img src="cat-mains.svg"><div class="name">Principales</div>
+      <div class="size">Sartén + salteado</div>
+    </div>
+    <div class="card" style="background:#183D18">
+      <img src="cat-starters.svg"><div class="name">Entrantes</div>
+      <div class="size">Bowl + ingredientes</div>
+    </div>
+    <div class="card" style="background:#3D3018">
+      <img src="cat-doughs.svg"><div class="name">Masas</div>
+      <div class="size">Masa + harina</div>
+    </div>
+  </div>
+
+  <!-- Light mode -->
+  <div class="bg-light">
+    <h2 style="color:#292524;margin-bottom:20px">Light Mode</h2>
+    <div class="grid">
+      <div class="card" style="background:#FFE0CC">
+        <img src="cat-desserts.svg"><div class="name">Postres</div>
+      </div>
+      <div class="card" style="background:#FFF0D4">
+        <img src="cat-breads.svg"><div class="name">Panes</div>
+      </div>
+      <div class="card" style="background:#D4F0E0">
+        <img src="cat-soups.svg"><div class="name">Sopas</div>
+      </div>
+      <div class="card" style="background:#FFD4D4">
+        <img src="cat-sauces.svg"><div class="name">Salsas</div>
+      </div>
+      <div class="card" style="background:#D4E8FF">
+        <img src="cat-drinks.svg"><div class="name">Bebidas</div>
+      </div>
+      <div class="card" style="background:#E8D4FF">
+        <img src="cat-mains.svg"><div class="name">Principales</div>
+      </div>
+      <div class="card" style="background:#D4FFD4">
+        <img src="cat-starters.svg"><div class="name">Entrantes</div>
+      </div>
+      <div class="card" style="background:#FFE8D4">
+        <img src="cat-doughs.svg"><div class="name">Masas</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tamaños -->
+  <div class="section">
+    <h2>Tamaños</h2>
+    <div class="row">
+      <div style="text-align:center">
+        <img src="cat-soups.svg" width="64" height="64"><br>
+        <span style="font-size:11px;color:#78716C">64px (explore)</span>
+      </div>
+      <div style="text-align:center">
+        <img src="cat-soups.svg" width="48" height="48"><br>
+        <span style="font-size:11px;color:#78716C">48px (card)</span>
+      </div>
+      <div style="text-align:center">
+        <img src="cat-soups.svg" width="36" height="36"><br>
+        <span style="font-size:11px;color:#78716C">36px (min)</span>
+      </div>
+      <div style="text-align:center">
+        <img src="cat-soups.svg" width="24" height="24"><br>
+        <span style="font-size:11px;color:#78716C">24px (chip)</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

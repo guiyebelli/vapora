@@ -9,7 +9,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { ChevronLeft, Heart, Share2 } from 'lucide-react-native';
+import { ChevronLeft, Heart, Share2, Clock, Star, Users } from 'lucide-react-native';
 
 import { Text, Chip } from '@/components/ui';
 import { useRecipeStore } from '@/store/useRecipeStore';
@@ -157,15 +157,15 @@ export default function RecipeDetailScreen() {
         {/* Metadata row */}
         <View style={styles.metadataRow}>
           <Chip
-            icon="⏱️"
+            leftIcon={<Clock size={14} color={theme.text.secondary} />}
             label={t('recipe.minutes', { count: recipe.totalTime })}
           />
           <Chip
-            icon="⭐"
+            leftIcon={<Star size={14} color={theme.text.secondary} />}
             label={t(`difficulty.${recipe.difficulty}`)}
           />
           <Chip
-            icon="👥"
+            leftIcon={<Users size={14} color={theme.text.secondary} />}
             label={t('recipe.servings', { count: recipe.servings })}
           />
           {recipe.thermomixModel.map((model) => (

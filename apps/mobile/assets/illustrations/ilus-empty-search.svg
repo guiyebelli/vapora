@@ -1,27 +1,27 @@
 <svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Thermomix pot (empty) -->
-  <rect x="88" y="105" width="64" height="50" rx="7" fill="#E7E5E4"/>
-  <rect x="92" y="100" width="56" height="10" rx="5" fill="#D6D3D1"/>
-  <!-- Inside pot: ellipsis (empty/nothing) -->
-  <circle cx="108" cy="128" r="3" fill="#A8A29E" opacity="0.5"/>
-  <circle cx="120" cy="128" r="3" fill="#A8A29E" opacity="0.5"/>
-  <circle cx="132" cy="128" r="3" fill="#A8A29E" opacity="0.5"/>
+  <!-- Empty search: lupa con plato vacío adentro -->
+  <!-- Lupa - aro -->
+  <circle cx="110" cy="100" r="55" stroke="#E8C87A" stroke-width="8" fill="#FFF8F0"/>
+  <!-- Brillo del vidrio -->
+  <path d="M78 75 Q88 62 102 68" stroke="white" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.5"/>
 
-  <!-- Magnifying glass (tilted, looking into pot) -->
-  <circle cx="100" cy="72" r="22" stroke="#A8A29E" stroke-width="4" fill="none"/>
-  <circle cx="100" cy="72" r="22" fill="#F5F5F4" opacity="0.3"/>
-  <line x1="116" y1="88" x2="132" y2="104" stroke="#A8A29E" stroke-width="5" stroke-linecap="round"/>
-  <!-- Glass reflection -->
-  <path d="M90 62 Q93 58 96 62" stroke="white" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <!-- Plato vacío dentro de la lupa -->
+  <ellipse cx="110" cy="110" rx="30" ry="10" fill="#F0E4FF" opacity="0.6"/>
+  <ellipse cx="110" cy="108" rx="25" ry="8" fill="#F5EDFF" opacity="0.5"/>
+  <!-- Signos de interrogación sutil -->
+  <text x="110" y="100" font-family="sans-serif" font-size="28" font-weight="700" fill="#D4A84A" text-anchor="middle" opacity="0.3">?</text>
 
-  <!-- Faint vapor (dissipating) -->
-  <path d="M108 92 Q111 82 114 92" stroke="#E7E5E4" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.4"/>
-  <path d="M120 88 Q123 78 126 88" stroke="#E7E5E4" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.3"/>
+  <!-- Mango de la lupa -->
+  <rect x="148" y="142" width="12" height="45" rx="6" fill="#D4A84A" transform="rotate(45 154 164)"/>
+  <rect x="148" y="142" width="12" height="20" rx="6" fill="#E8C87A" transform="rotate(45 154 164)"/>
 
-  <!-- Base line -->
-  <rect x="75" y="158" width="90" height="3" rx="1.5" fill="#F5F5F4"/>
+  <!-- Partículas decorativas -->
+  <circle cx="50" cy="70" r="4" fill="#FFE0CC" opacity="0.4"/>
+  <circle cx="175" cy="60" r="3" fill="#E8C87A" opacity="0.35"/>
+  <circle cx="40" cy="140" r="3" fill="#FFAD7D" opacity="0.3"/>
+  <circle cx="185" cy="150" r="3.5" fill="#FFE0CC" opacity="0.35"/>
 
-  <!-- Decorative -->
-  <circle cx="60" cy="110" r="3" fill="#E7E5E4" opacity="0.4"/>
-  <circle cx="185" cy="95" r="2.5" fill="#E7E5E4" opacity="0.3"/>
+  <!-- Vapor triste (poco, disperso) -->
+  <path d="M100 68 Q103 58 106 68" stroke="#FFAD7D" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/>
+  <path d="M115 64 Q118 54 121 64" stroke="#FFAD7D" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.25"/>
 </svg>

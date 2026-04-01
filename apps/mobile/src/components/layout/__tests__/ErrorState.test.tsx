@@ -31,10 +31,10 @@ describe('ErrorState', () => {
     expect(onRetry).toHaveBeenCalledTimes(1);
   });
 
-  it('renders default emoji icon when no illustration', () => {
+  it('renders default icon when no illustration', () => {
     renderWithTheme(
       <ErrorState message="Error" onRetry={jest.fn()} />,
     );
-    expect(screen.getByText('⚠️')).toBeTruthy();
+    expect(screen.getByTestId('icon-AlertTriangle')).toBeTruthy();
   });
 });

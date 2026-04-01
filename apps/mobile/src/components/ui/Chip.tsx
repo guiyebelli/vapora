@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable, View, StyleSheet } from 'react-native';
 import { colors, radius, spacing, useTheme } from '@/theme';
 import { Text } from './Text';
 
@@ -11,6 +11,7 @@ interface ChipProps {
   variant?: ChipVariant;
   onPress?: () => void;
   icon?: string;
+  leftIcon?: React.ReactNode;
 }
 
 export function Chip({
@@ -19,6 +20,7 @@ export function Chip({
   variant = 'default',
   onPress,
   icon,
+  leftIcon,
 }: ChipProps) {
   const { theme, isDark } = useTheme();
 
@@ -48,7 +50,8 @@ export function Chip({
       hitSlop={{ top: 6, bottom: 6, left: 4, right: 4 }}
       style={[styles.container, { backgroundColor: variantConf.bg }]}
     >
-      {icon ? <Text style={styles.icon}>{icon}</Text> : null}
+      {leftIcon ? <View style={styles.leftIcon}>{leftIcon}</View> : null}
+      {!leftIcon && icon ? <Text style={styles.icon}>{icon}</Text> : null}
       <Text variant="bodySmall" color={variantConf.text}>
         {label}
       </Text>
@@ -67,5 +70,11 @@ const styles = StyleSheet.create({
   },
   icon: {
     fontSize: 14,
+  },
+  leftIcon: {
+    width: 16,
+    height: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

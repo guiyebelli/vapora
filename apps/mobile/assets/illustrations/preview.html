@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vapora — Illustrations Preview v2</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, sans-serif; background: #1A1614; color: #FAFAF9; padding: 40px; }
+  h1 { font-size: 24px; margin-bottom: 8px; color: #FF8C5A; }
+  p { font-size: 14px; color: #A8A29E; margin-bottom: 40px; }
+  h2 { font-size: 18px; margin-bottom: 20px; color: #FAFAF9; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin-bottom: 48px; }
+  .card {
+    text-align: center;
+    padding: 24px;
+    border-radius: 20px;
+    background: #241F1B;
+  }
+  .card img { width: 160px; height: 160px; margin-bottom: 12px; }
+  .card .name { font-size: 14px; font-weight: 600; }
+  .card .desc { font-size: 11px; color: #A8A29E; margin-top: 4px; }
+  .bg-light { background: #FFFBF7; padding: 40px; border-radius: 24px; margin-bottom: 48px; }
+  .bg-light .card { background: #FFFFFF; border: 1px solid #E7E5E4; }
+  .bg-light .name { color: #292524; }
+  .bg-light .desc { color: #A8A29E; }
+  .bg-light h2 { color: #292524; }
+</style>
+</head>
+<body>
+  <h1>Vapora — Ilustraciones v2</h1>
+  <p>Estilo: filled cálido, colores de marca, detalles con amor. Misma estética que los iconos de categoría.</p>
+
+  <!-- Dark mode -->
+  <h2>Empty States (Dark)</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="ilus-empty-favorites.svg">
+      <div class="name">Favoritos vacío</div>
+      <div class="desc">Corazón + olla Vapora + corazoncitos vapor</div>
+    </div>
+    <div class="card">
+      <img src="ilus-empty-search.svg">
+      <div class="name">Sin resultados</div>
+      <div class="desc">Lupa dorada + plato vacío + ?</div>
+    </div>
+    <div class="card">
+      <img src="ilus-empty-category.svg">
+      <div class="name">Categoría vacía</div>
+      <div class="desc">Olla abierta vacía + tapa volteada</div>
+    </div>
+  </div>
+
+  <h2>Onboarding (Dark)</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="ilus-onboarding-welcome.svg">
+      <div class="name">Bienvenida</div>
+      <div class="desc">Olla cocinando + comida flotando</div>
+    </div>
+    <div class="card">
+      <img src="ilus-onboarding-language.svg">
+      <div class="name">Idioma</div>
+      <div class="desc">Globo + Hola/Hello</div>
+    </div>
+    <div class="card">
+      <img src="ilus-onboarding-model.svg">
+      <div class="name">Modelo TM</div>
+      <div class="desc">TM5 dorado + TM6 naranja + check</div>
+    </div>
+  </div>
+
+  <!-- Light mode -->
+  <div class="bg-light">
+    <h2>Empty States (Light)</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="ilus-empty-favorites.svg">
+        <div class="name">Favoritos vacío</div>
+      </div>
+      <div class="card">
+        <img src="ilus-empty-search.svg">
+        <div class="name">Sin resultados</div>
+      </div>
+      <div class="card">
+        <img src="ilus-empty-category.svg">
+        <div class="name">Categoría vacía</div>
+      </div>
+    </div>
+
+    <h2>Onboarding (Light)</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="ilus-onboarding-welcome.svg">
+        <div class="name">Bienvenida</div>
+      </div>
+      <div class="card">
+        <img src="ilus-onboarding-language.svg">
+        <div class="name">Idioma</div>
+      </div>
+      <div class="card">
+        <img src="ilus-onboarding-model.svg">
+        <div class="name">Modelo TM</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error state -->
+  <h2>Error State</h2>
+  <div class="grid" style="grid-template-columns: 1fr;">
+    <div class="card" style="max-width: 300px;">
+      <img src="ilus-error-general.svg">
+      <div class="name">Error general</div>
+      <div class="desc">Sin cambios (mantiene estilo anterior)</div>
+    </div>
+  </div>
+</body>
+</html>
