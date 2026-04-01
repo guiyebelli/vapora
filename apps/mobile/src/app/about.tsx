@@ -54,6 +54,26 @@ export default function AboutScreen() {
               {t('settings.privacy')}
             </Text>
           </Pressable>
+          <Pressable
+            onPress={() => Linking.openURL('https://github.com/guiyebelli/vapora/blob/main/LICENSE')}
+            accessibilityRole="link"
+            accessibilityLabel={t('settings.licenses')}
+            style={styles.subtleLink}
+          >
+            <Text variant="caption" color={theme.text.tertiary} style={styles.subtleLinkText}>
+              {t('settings.licenses')}
+            </Text>
+          </Pressable>
+          <Pressable
+            onPress={() => Linking.openURL('https://github.com/guiyebelli/vapora/issues')}
+            accessibilityRole="link"
+            accessibilityLabel={t('settings.feedback')}
+            style={styles.subtleLink}
+          >
+            <Text variant="caption" color={theme.text.tertiary} style={styles.subtleLinkText}>
+              {t('settings.feedback')}
+            </Text>
+          </Pressable>
         </View>
       </ScrollView>
     </ScreenWrapper>

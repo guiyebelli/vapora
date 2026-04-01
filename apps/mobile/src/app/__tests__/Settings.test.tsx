@@ -42,12 +42,9 @@ describe('Settings Screen', () => {
     expect(screen.getByText('settings.themeDark')).toBeTruthy();
   });
 
-  it('renders info section', () => {
+  it('renders info section with about link', () => {
     renderWithTheme(<SettingsScreen />);
     expect(screen.getByText('settings.about')).toBeTruthy();
-    expect(screen.getByText('settings.licenses')).toBeTruthy();
-    expect(screen.getByText('settings.privacy')).toBeTruthy();
-    expect(screen.getByText('settings.feedback')).toBeTruthy();
   });
 
   it('renders version in footer', () => {

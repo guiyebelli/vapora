@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View, StyleSheet, Linking } from 'react-native';
+import { ScrollView, View, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
@@ -108,24 +108,6 @@ export default function SettingsScreen() {
             <SettingsRow
               label={t('settings.about')}
               onPress={() => router.push('/about')}
-            />
-            <SettingsRow
-              label={t('settings.licenses')}
-              onPress={() => {
-                Linking.openURL('https://github.com/guiyebelli/vapora/blob/main/LICENSE');
-              }}
-            />
-            <SettingsRow
-              label={t('settings.privacy')}
-              onPress={() => {
-                Linking.openURL('https://guiyebelli.github.io/vapora/privacy.html');
-              }}
-            />
-            <SettingsRow
-              label={t('settings.feedback')}
-              onPress={() => {
-                Linking.openURL('https://github.com/guiyebelli/vapora/issues');
-              }}
             />
           </SettingsGroup>
         </View>
