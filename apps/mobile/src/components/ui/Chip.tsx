@@ -40,8 +40,8 @@ export function Chip({
       text: isDark ? colors.accent[300] : colors.accent[700],
     },
     tm: {
-      bg: isDark ? colors.primary[900] : colors.primary[50],
-      text: isDark ? colors.primary[300] : colors.primary[700],
+      bg: isDark ? colors.primary[800] : colors.primary[100],
+      text: isDark ? colors.primary[200] : colors.primary[700],
     },
   }[resolvedVariant];
 

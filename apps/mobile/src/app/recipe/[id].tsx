@@ -246,7 +246,11 @@ export default function RecipeDetailScreen() {
                   <View
                     style={[
                       styles.tmSettingsRow,
-                      { backgroundColor: theme.accentLight },
+                      {
+                        backgroundColor: isDark ? colors.primary[900] : colors.primary[50],
+                        borderWidth: 1,
+                        borderColor: isDark ? colors.primary[700] : colors.primary[200],
+                      },
                     ]}
                   >
                     {step.thermomixSettings.speed != null && (
