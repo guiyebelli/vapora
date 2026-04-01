@@ -10,6 +10,7 @@ import { SectionHeader } from '@/components/layout';
 import { useTheme, spacing, radius, shadows } from '@/theme';
 import { useRecipeStore } from '@/store/useRecipeStore';
 import { categories } from '@/data/categories';
+import { categoryIcons } from '@/data/categoryIcons';
 import type { Category } from '@/types';
 
 export default function ExploreScreen() {
@@ -60,16 +61,13 @@ export default function ExploreScreen() {
           pressed && styles.categoryPressed,
         ]}
       >
-        <Text style={styles.categoryIcon}>{item.icon}</Text>
+        {React.createElement(categoryIcons[item.id], { width: 36, height: 36, color: isDark ? theme.text.primary : theme.text.secondary })}
         <Text variant="h3" style={styles.categoryName}>
           {item.name[lang]}
         </Text>
-        <Text variant="caption" color={theme.text.secondary}>
-          {t('explore.recipeCount', { count: item.count })}
-        </Text>
       </Pressable>
     ),
-    [handleCategoryPress, lang, t, cardSize, isDark, theme.text.secondary, theme.glass.border],
+    [handleCategoryPress, lang, t, cardSize, isDark, theme.glass.border, theme.text.primary, theme.text.secondary],
   );
 
   return (

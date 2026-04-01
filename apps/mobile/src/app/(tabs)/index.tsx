@@ -70,7 +70,6 @@ export default function HomeScreen() {
     ({ item }: { item: Category }) => (
       <Chip
         label={item.name.es}
-        icon={item.icon}
         variant="category"
         onPress={() => handleCategoryPress(item.id)}
       />

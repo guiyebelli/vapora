@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Pan/baguette -->
+  <path d="M5 17V12c0-4 3-7 7-7s7 3 7 7v5"/>
+  <path d="M3 17h18v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2z"/>
+  <path d="M9 10v4M12 9v5M15 10v4"/>
+</svg>
