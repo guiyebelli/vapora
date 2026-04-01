@@ -14,8 +14,9 @@ import {
 } from '@/components/ui';
 import { useTheme, spacing } from '@/theme';
 import { useSettingsStore } from '@/store/useSettingsStore';
+import LogoIcon from '../../../assets/illustrations/logo-icon.svg';
 
-type SheetType = 'language' | 'tmModel' | 'theme' | null;
+type SheetType = 'language' | 'tmModel' | null;
 
 const LANGUAGE_OPTIONS = [
   { value: 'es' as const, label: 'Español', icon: '🇪🇸' },
@@ -25,13 +26,7 @@ const LANGUAGE_OPTIONS = [
 const TM_MODEL_OPTIONS = [
   { value: 'tm5' as const, label: 'Thermomix TM5' },
   { value: 'tm6' as const, label: 'Thermomix TM6' },
-  { value: 'both' as const, label: '' }, // label set dynamically via i18n
-];
-
-const THEME_OPTIONS = [
-  { value: 'light' as const, label: '', icon: '☀️' },
-  { value: 'dark' as const, label: '', icon: '🌙' },
-  { value: 'system' as const, label: '', icon: '📱' },
+  { value: 'both' as const, label: '' },
 ];
 
 export default function SettingsScreen() {
@@ -59,25 +54,16 @@ export default function SettingsScreen() {
     both: t('settings.tmBoth'),
   }[tmModel];
 
-  const themeDisplay = {
-    light: t('settings.themeLight'),
-    dark: t('settings.themeDark'),
-    system: t('settings.themeSystem'),
-  }[themeMode];
+  const isDarkMode = themeMode === 'dark';
 
   const tmOptions = TM_MODEL_OPTIONS.map((o) => ({
     ...o,
     label: o.value === 'both' ? t('settings.tmBoth') : o.label,
   }));
 
-  const themeOptions = THEME_OPTIONS.map((o) => ({
-    ...o,
-    label: {
-      light: t('settings.themeLight'),
-      dark: t('settings.themeDark'),
-      system: t('settings.themeSystem'),
-    }[o.value],
-  }));
+  const handleThemeToggle = (value: boolean) => {
+    setTheme(value ? 'dark' : 'light');
+  };
 
   return (
     <SafeAreaView
@@ -98,22 +84,19 @@ export default function SettingsScreen() {
         <View style={styles.groupContainer}>
           <SettingsGroup>
             <SettingsRow
-              icon="🌐"
               label={t('settings.language')}
               value={languageDisplay}
               onPress={() => setActiveSheet('language')}
             />
             <SettingsRow
-              icon="🤖"
               label={t('settings.thermomix')}
               value={tmModelDisplay}
               onPress={() => setActiveSheet('tmModel')}
             />
             <SettingsRow
-              icon="🎨"
-              label={t('settings.theme')}
-              value={themeDisplay}
-              onPress={() => setActiveSheet('theme')}
+              label={t('settings.themeDark')}
+              switchValue={isDarkMode}
+              onSwitchChange={handleThemeToggle}
             />
           </SettingsGroup>
         </View>
@@ -123,26 +106,22 @@ export default function SettingsScreen() {
         <View style={styles.groupContainer}>
           <SettingsGroup>
             <SettingsRow
-              icon="ℹ️"
               label={t('settings.about')}
               onPress={() => router.push('/about')}
             />
             <SettingsRow
-              icon="📜"
               label={t('settings.licenses')}
               onPress={() => {
-                Linking.openURL('https://github.com/guiyebelli/vapora');
+                Linking.openURL('https://github.com/guiyebelli/vapora/blob/main/LICENSE');
               }}
             />
             <SettingsRow
-              icon="🔒"
               label={t('settings.privacy')}
               onPress={() => {
-                Linking.openURL('https://github.com/guiyebelli/vapora');
+                Linking.openURL('https://guiyebelli.github.io/vapora/privacy.html');
               }}
             />
             <SettingsRow
-              icon="💬"
               label={t('settings.feedback')}
               onPress={() => {
                 Linking.openURL('https://github.com/guiyebelli/vapora/issues');
@@ -153,7 +132,7 @@ export default function SettingsScreen() {
 
         {/* Footer */}
         <View style={styles.footer}>
-          <Text style={styles.footerLogo}>☁️</Text>
+          <LogoIcon width={48} height={48} />
           <Text variant="caption" color={theme.text.tertiary}>
             Vapora
           </Text>
@@ -182,15 +161,6 @@ export default function SettingsScreen() {
         onSelect={setTMModel}
         onClose={() => setActiveSheet(null)}
       />
-
-      <SelectorSheet
-        visible={activeSheet === 'theme'}
-        title={t('settings.themeTitle')}
-        options={themeOptions}
-        selected={themeMode}
-        onSelect={setTheme}
-        onClose={() => setActiveSheet(null)}
-      />
     </SafeAreaView>
   );
 }
@@ -217,9 +187,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: spacing['2xl'],
     gap: 4,
-  },
-  footerLogo: {
-    fontSize: 40,
-    marginBottom: spacing.xs,
   },
 });
