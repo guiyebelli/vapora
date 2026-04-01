@@ -196,8 +196,8 @@ export default function RecipeDetailScreen() {
             </Text>
           </View>
 
-          {recipe.ingredients.map((ingredient) => (
-            <View key={ingredient.id} style={[styles.ingredientRow, { borderBottomColor: theme.border }]}>
+          {recipe.ingredients.map((ingredient, index) => (
+            <View key={ingredient.id} style={[styles.ingredientRow, index < recipe.ingredients.length - 1 && { borderBottomColor: theme.border, borderBottomWidth: StyleSheet.hairlineWidth }]}>
               <Text variant="body" color={theme.text.primary}>
                 <Text variant="body" color={theme.text.primary} style={styles.bold}>
                   {ingredient.amount} {ingredient.unit}
@@ -246,11 +246,7 @@ export default function RecipeDetailScreen() {
                   <View
                     style={[
                       styles.tmSettingsRow,
-                      {
-                        backgroundColor: isDark ? colors.primary[900] : colors.primary[50],
-                        borderWidth: 1,
-                        borderColor: isDark ? colors.primary[700] : colors.primary[200],
-                      },
+                      { backgroundColor: theme.background.secondary },
                     ]}
                   >
                     {step.thermomixSettings.speed != null && (
@@ -370,7 +366,6 @@ const styles = StyleSheet.create({
   },
   ingredientRow: {
     paddingVertical: spacing.xs,
-    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   bold: {
     fontWeight: '700',
