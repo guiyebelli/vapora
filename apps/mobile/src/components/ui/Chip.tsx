@@ -3,7 +3,7 @@ import { Pressable, View, StyleSheet } from 'react-native';
 import { colors, radius, spacing, useTheme } from '@/theme';
 import { Text } from './Text';
 
-type ChipVariant = 'default' | 'selected' | 'category';
+type ChipVariant = 'default' | 'selected' | 'category' | 'tm';
 
 interface ChipProps {
   label: string;
@@ -38,6 +38,10 @@ export function Chip({
     category: {
       bg: isDark ? colors.accent[900] : colors.accent[100],
       text: isDark ? colors.accent[300] : colors.accent[700],
+    },
+    tm: {
+      bg: isDark ? colors.primary[900] : colors.primary[50],
+      text: isDark ? colors.primary[300] : colors.primary[700],
     },
   }[resolvedVariant];
 

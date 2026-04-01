@@ -174,7 +174,7 @@ export default function RecipeDetailScreen() {
             label={t('recipe.servings', { count: recipe.servings })}
           />
           {recipe.thermomixModel.map((model) => (
-            <Chip key={model} label={model} variant="category" />
+            <Chip key={model} label={model} variant="tm" />
           ))}
         </View>
 
@@ -252,7 +252,7 @@ export default function RecipeDetailScreen() {
                     {step.thermomixSettings.speed != null && (
                       <Chip
                         label={formatSpeed(step.thermomixSettings.speed)}
-                        variant="category"
+                        variant="tm"
                       />
                     )}
                     {step.thermomixSettings.temperature != null && (
@@ -260,7 +260,7 @@ export default function RecipeDetailScreen() {
                         label={formatTemperature(
                           step.thermomixSettings.temperature,
                         )}
-                        variant="category"
+                        variant="tm"
                       />
                     )}
                     {step.thermomixSettings.time != null && (
@@ -268,7 +268,7 @@ export default function RecipeDetailScreen() {
                         label={t('recipe.minutes', {
                           count: step.thermomixSettings.time,
                         })}
-                        variant="category"
+                        variant="tm"
                       />
                     )}
                   </View>
