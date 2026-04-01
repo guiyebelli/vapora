@@ -263,7 +263,7 @@ export default function SearchScreen() {
           <Text variant="caption" color={theme.text.tertiary} style={styles.filterLabel}>
             {t('search.filterDifficulty')}
           </Text>
-          <View style={[styles.filterChipRow, styles.filterChipContent]}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.filterChipRow} contentContainerStyle={styles.filterChipContent}>
             {DIFFICULTY_OPTIONS.map((d) => (
               <Chip
                 key={d}
@@ -272,13 +272,13 @@ export default function SearchScreen() {
                 onPress={() => setFilterDifficulty(filterDifficulty === d ? null : d)}
               />
             ))}
-          </View>
+          </ScrollView>
 
           {/* Time */}
           <Text variant="caption" color={theme.text.tertiary} style={styles.filterLabel}>
             {t('search.filterTime')}
           </Text>
-          <View style={[styles.filterChipRow, styles.filterChipContent]}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.filterChipRow} contentContainerStyle={styles.filterChipContent}>
             {TIME_OPTIONS.map((mins) => (
               <Chip
                 key={mins}
@@ -287,7 +287,7 @@ export default function SearchScreen() {
                 onPress={() => setFilterMaxTime(filterMaxTime === mins ? null : mins)}
               />
             ))}
-          </View>
+          </ScrollView>
         </View>
       )}
 
@@ -351,16 +351,6 @@ export default function SearchScreen() {
                 </View>
               )}
 
-              <View style={styles.section}>
-                <SectionHeader title={t('search.suggestions')} />
-                <View style={styles.chipRow}>
-                  <Chip label={t('search.chipQuick')} onPress={() => handleRecentPress(t('search.chipQuick'))} />
-                  <Chip label={t('search.chipEasy')} onPress={() => handleRecentPress(t('search.chipEasy'))} />
-                  <Chip label={t('search.chipNoOven')} onPress={() => handleRecentPress(t('search.chipNoOven'))} />
-                  <Chip label={t('search.chipVegan')} onPress={() => handleRecentPress(t('search.chipVegan'))} />
-                  <Chip label={t('search.chipKids')} onPress={() => handleRecentPress(t('search.chipKids'))} />
-                </View>
-              </View>
             </>
           }
         />
@@ -452,11 +442,5 @@ const styles = StyleSheet.create({
   },
   recentText: {
     flex: 1,
-  },
-  chipRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
-    paddingHorizontal: spacing.md,
   },
 });

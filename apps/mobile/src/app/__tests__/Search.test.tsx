@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react-native';
+import { render, screen } from '@testing-library/react-native';
 import SearchScreen from '../search';
 import { ThemeProvider } from '@/theme';
 import { useRecipeStore } from '@/store/useRecipeStore';
@@ -50,20 +50,14 @@ describe('Search Screen', () => {
     expect(screen.getByText('search.cancel')).toBeTruthy();
   });
 
-  it('renders suggestion chips', () => {
+  it('renders filter toggle button', () => {
     renderWithTheme(<SearchScreen />);
-    expect(screen.getByText('search.chipQuick')).toBeTruthy();
-    expect(screen.getByText('search.chipEasy')).toBeTruthy();
+    expect(screen.getByText('search.filters')).toBeTruthy();
   });
 
   it('renders recent searches', () => {
     renderWithTheme(<SearchScreen />);
     expect(screen.getByText('sopa')).toBeTruthy();
     expect(screen.getByText('pan')).toBeTruthy();
-  });
-
-  it('renders suggestions section header', () => {
-    renderWithTheme(<SearchScreen />);
-    expect(screen.getByText('search.suggestions')).toBeTruthy();
   });
 });
