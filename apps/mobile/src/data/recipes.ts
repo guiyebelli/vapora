@@ -183,6 +183,10 @@ export const recipes: Recipe[] = [
       "es": "Para una corteza mas crujiente, colocar un recipiente con agua en la base del horno durante la coccion.",
       "en": "For a crispier crust, place a small dish of water at the bottom of the oven during baking."
     },
+    "origin": {
+      "es": "Internacional",
+      "en": "International"
+    },
     "createdAt": "2026-03-31T00:00:00.000Z",
     "updatedAt": "2026-03-31T00:00:00.000Z"
   },
@@ -399,6 +403,10 @@ export const recipes: Recipe[] = [
       "es": "El brioche esta perfecto cuando al golpearlo en la base suena hueco. Se conserva bien 2-3 dias en una bolsa cerrada.",
       "en": "The brioche is perfect when it sounds hollow when tapped on the bottom. It keeps well for 2-3 days in a sealed bag."
     },
+    "origin": {
+      "es": "Francia",
+      "en": "France"
+    },
     "createdAt": "2026-03-31T00:00:00.000Z",
     "updatedAt": "2026-03-31T00:00:00.000Z"
   },
@@ -570,6 +578,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Para una masa mas sabrosa, dejar fermentar en la nevera durante 24 horas en vez de 45 minutos a temperatura ambiente.",
       "en": "For a more flavorful dough, let it ferment in the fridge for 24 hours instead of 45 minutes at room temperature."
+    },
+    "origin": {
+      "es": "Italia",
+      "en": "Italy"
     },
     "createdAt": "2026-03-31T00:00:00.000Z",
     "updatedAt": "2026-03-31T00:00:00.000Z"
@@ -823,6 +835,10 @@ export const recipes: Recipe[] = [
       "es": "Este pan es ideal para tostar. Se congela muy bien: cortar en rebanadas antes de congelar para poder sacar solo las que necesites.",
       "en": "This bread is ideal for toasting. It freezes very well: slice before freezing so you can take out only what you need."
     },
+    "origin": {
+      "es": "Internacional",
+      "en": "International"
+    },
     "createdAt": "2026-03-31T00:00:00.000Z",
     "updatedAt": "2026-03-31T00:00:00.000Z"
   },
@@ -999,6 +1015,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Puedes usar una mezcla de manzanas ácidas y dulces para más contraste de sabor. También se puede añadir 30 g de copos de avena a la masa del crumble.",
       "en": "You can use a mix of tart and sweet apples for more flavor contrast. You can also add 30 g of oat flakes to the crumble dough."
+    },
+    "origin": {
+      "es": "Reino Unido",
+      "en": "United Kingdom"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
@@ -1219,6 +1239,10 @@ export const recipes: Recipe[] = [
       "es": "Usa chocolate de buena calidad para un mejor resultado. La nata y las claras deben estar bien frías antes de montar.",
       "en": "Use good quality chocolate for a better result. Cream and egg whites should be very cold before whipping."
     },
+    "origin": {
+      "es": "Francia",
+      "en": "France"
+    },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
   },
@@ -1380,6 +1404,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Para una versión más cremosa, sustituir 200 ml de leche por leche condensada y reducir el azúcar a la mitad. Se conserva en nevera hasta 3 días.",
       "en": "For a creamier version, replace 200 ml of milk with condensed milk and halve the sugar. Keeps in the fridge for up to 3 days."
+    },
+    "origin": {
+      "es": "España",
+      "en": "Spain"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
@@ -1589,6 +1617,10 @@ export const recipes: Recipe[] = [
       "es": "Este flan queda mejor si se refrigera toda la noche. También se puede hacer con leche condensada reemplazando azúcar y leche.",
       "en": "This flan is best if refrigerated overnight. It can also be made with condensed milk replacing sugar and milk."
     },
+    "origin": {
+      "es": "España",
+      "en": "Spain"
+    },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
   },
@@ -1737,6 +1769,10 @@ export const recipes: Recipe[] = [
       "es": "Para crepes salados, omitir el azúcar y la vainilla. La masa se conserva hasta 24 horas en la nevera.",
       "en": "For savory crepes, omit the sugar and vanilla. The batter keeps up to 24 hours in the fridge."
     },
+    "origin": {
+      "es": "Francia",
+      "en": "France"
+    },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
   },
@@ -1864,6 +1900,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Se puede congelar la masa ya estirada en discos individuales, separados con papel de horno. El vinagre ayuda a que la masa quede más tierna.",
       "en": "You can freeze the dough already rolled into individual discs, separated with parchment paper. The vinegar helps make the dough more tender."
+    },
+    "origin": {
+      "es": "Argentina",
+      "en": "Argentina"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
@@ -2128,6 +2168,10 @@ export const recipes: Recipe[] = [
       "es": "Se puede preparar la masa la noche anterior y dejarla en la nevera. Para más sabor, añadir un poco de nuez moscada al relleno o usar queso gruyère.",
       "en": "You can prepare the dough the night before and leave it in the fridge. For more flavor, add a little nutmeg to the filling or use Gruyère cheese."
     },
+    "origin": {
+      "es": "Francia",
+      "en": "France"
+    },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
   },
@@ -2266,6 +2310,10 @@ export const recipes: Recipe[] = [
       "es": "Para versión dulce, añadir 30 g de azúcar glas y una yema de huevo. Se puede congelar la masa cruda hasta 3 meses.",
       "en": "For a sweet version, add 30 g of powdered sugar and an egg yolk. The raw dough can be frozen for up to 3 months."
     },
+    "origin": {
+      "es": "Francia",
+      "en": "France"
+    },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
   },
@@ -2394,6 +2442,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Para un chocolate aún más espeso, aumentar la maicena a 20 g. Se puede añadir una pizca de chile en polvo para un toque mexicano.",
       "en": "For an even thicker chocolate, increase cornstarch to 20 g. You can add a pinch of chili powder for a Mexican twist."
+    },
+    "origin": {
+      "es": "España",
+      "en": "Spain"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
@@ -2526,6 +2578,10 @@ export const recipes: Recipe[] = [
       "es": "Ajustar el azúcar al gusto. Se puede sustituir por miel o sirope de agave. Para una versión para adultos, añadir un chorrito de vodka.",
       "en": "Adjust sugar to taste. You can substitute with honey or agave syrup. For an adult version, add a splash of vodka."
     },
+    "origin": {
+      "es": "Internacional",
+      "en": "International"
+    },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
   },
@@ -2652,6 +2708,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Si usas fresas congeladas no necesitas hielo. Para versión vegana, sustituir yogur y leche por alternativas vegetales.",
       "en": "If using frozen strawberries, you don't need ice. For a vegan version, substitute yogurt and milk with plant-based alternatives."
+    },
+    "origin": {
+      "es": "Internacional",
+      "en": "International"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
@@ -2906,6 +2966,10 @@ export const recipes: Recipe[] = [
       "es": "Esta salsa mejora al día siguiente. Se puede congelar en porciones para tener lista durante la semana.",
       "en": "This sauce tastes even better the next day. You can freeze it in portions to have ready during the week."
     },
+    "origin": {
+      "es": "Italia",
+      "en": "Italy"
+    },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
   },
@@ -3136,6 +3200,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Para un curry más picante, añadir media cucharadita de cayena en el paso 3. El arroz basmati se cocina aparte.",
       "en": "For a spicier curry, add half a teaspoon of cayenne in step 3. Basmati rice is cooked separately."
+    },
+    "origin": {
+      "es": "India",
+      "en": "India"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
@@ -3371,6 +3439,10 @@ export const recipes: Recipe[] = [
       "es": "Dejar reposar 2 minutos antes de servir para que el risotto termine de cremarse. Se puede decorar con perejil fresco y un hilo de aceite de trufa.",
       "en": "Let it rest for 2 minutes before serving so the risotto finishes becoming creamy. You can garnish with fresh parsley and a drizzle of truffle oil."
     },
+    "origin": {
+      "es": "Italia",
+      "en": "Italy"
+    },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
   },
@@ -3589,6 +3661,10 @@ export const recipes: Recipe[] = [
       "es": "El tiempo de vapor puede variar según el grosor de los lomos de salmón. Para un salmón más jugoso, reducir 2-3 minutos.",
       "en": "Steaming time may vary depending on the thickness of the salmon fillets. For juicier salmon, reduce by 2-3 minutes."
     },
+    "origin": {
+      "es": "Internacional",
+      "en": "International"
+    },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
   },
@@ -3733,6 +3809,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Para una bechamel más espesa (ideal para croquetas), reducir la leche a 400 ml. Para una más ligera (para lasañas), usar 600 ml.",
       "en": "For a thicker bechamel (ideal for croquettes), reduce milk to 400 ml. For a lighter one (for lasagnas), use 600 ml."
+    },
+    "origin": {
+      "es": "Francia",
+      "en": "France"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
@@ -3909,6 +3989,10 @@ export const recipes: Recipe[] = [
       "es": "Servir con un chorrito de aceite de oliva, pimentón y semillas de sésamo por encima. Acompañar con pan de pita o crudités.",
       "en": "Serve with a drizzle of olive oil, paprika and sesame seeds on top. Accompany with pita bread or crudités."
     },
+    "origin": {
+      "es": "Medio Oriente",
+      "en": "Middle East"
+    },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
   },
@@ -4061,6 +4145,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Se conserva en un bote de cristal cubierto con una capa de aceite de oliva hasta una semana en la nevera. También se puede congelar en cubiteras.",
       "en": "Keeps in a glass jar covered with a layer of olive oil for up to a week in the fridge. You can also freeze it in ice cube trays."
+    },
+    "origin": {
+      "es": "Italia",
+      "en": "Italy"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
@@ -4242,6 +4330,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Se conserva hasta 5 días en la nevera o 3 meses en el congelador. Ideal para preparar en lotes grandes.",
       "en": "Keeps up to 5 days in the fridge or 3 months in the freezer. Ideal for batch cooking."
+    },
+    "origin": {
+      "es": "Italia",
+      "en": "Italy"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
@@ -4543,6 +4635,10 @@ export const recipes: Recipe[] = [
       "es": "Para un caldo más intenso, puedes usar contramuslos con hueso y piel en el Varoma, luego deshuesar y desmenuzar. Los fideos sin gluten funcionan perfectamente en esta receta.",
       "en": "For a richer broth, you can use bone-in, skin-on thighs in the Varoma, then debone and shred. Gluten-free noodles work perfectly in this recipe."
     },
+    "origin": {
+      "es": "Internacional",
+      "en": "International"
+    },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
   },
@@ -4693,6 +4789,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Para servirla fría como vichyssoise clásica, dejar enfriar y refrigerar al menos 2 horas. Añadir un chorrito de nata al servir.",
       "en": "To serve cold as classic vichyssoise, let it cool and refrigerate for at least 2 hours. Add a drizzle of cream when serving."
+    },
+    "origin": {
+      "es": "Francia",
+      "en": "France"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
@@ -4894,6 +4994,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Puedes sustituir el jengibre fresco por 1/2 cdta de jengibre en polvo. La crema se conserva bien en la nevera hasta 3 días.",
       "en": "You can substitute fresh ginger with 1/2 tsp ground ginger. The soup keeps well in the fridge for up to 3 days."
+    },
+    "origin": {
+      "es": "Internacional",
+      "en": "International"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
@@ -5108,6 +5212,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Usar tomates de pera maduros da el mejor sabor. En temporada, los tomates del huerto hacen una diferencia enorme.",
       "en": "Using ripe plum tomatoes gives the best flavor. In season, garden tomatoes make a huge difference."
+    },
+    "origin": {
+      "es": "Italia",
+      "en": "Italy"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
@@ -5327,6 +5435,10 @@ export const recipes: Recipe[] = [
       "es": "Se pueden congelar antes de empanar. Para freír directamente del congelador, bajar la temperatura del aceite a 170°C y freír un poco más de tiempo.",
       "en": "They can be frozen before coating. To fry directly from frozen, lower the oil temperature to 170°C and fry a bit longer."
     },
+    "origin": {
+      "es": "España",
+      "en": "Spain"
+    },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
   },
@@ -5498,6 +5610,10 @@ export const recipes: Recipe[] = [
       "es": "El gazpacho mejora tras reposar al menos 2 horas en la nevera. Servir con toppings picados: huevo duro, pepino, pimiento y picatostes.",
       "en": "Gazpacho improves after resting at least 2 hours in the fridge. Serve with chopped toppings: hard-boiled egg, cucumber, pepper and croutons."
     },
+    "origin": {
+      "es": "España",
+      "en": "Spain"
+    },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
   },
@@ -5640,6 +5756,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Servir inmediatamente para evitar que se oxide. Si necesitas guardarlo, cubrir con film al contacto y refrigerar. El jalapeño es opcional: sin él queda suave para toda la familia.",
       "en": "Serve immediately to prevent oxidation. If you need to store it, cover with cling film touching the surface and refrigerate. The jalapeño is optional: without it, it's mild for the whole family."
+    },
+    "origin": {
+      "es": "México",
+      "en": "Mexico"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
@@ -5797,6 +5917,10 @@ export const recipes: Recipe[] = [
     "tips": {
       "es": "Para una tortilla más jugosa, no cocinar demasiado los huevos: que el centro quede ligeramente cremoso. Dejar reposar 5 minutos antes de cortar.",
       "en": "For a juicier omelette, don't overcook the eggs: the center should be slightly creamy. Let it rest 5 minutes before cutting."
+    },
+    "origin": {
+      "es": "España",
+      "en": "Spain"
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"

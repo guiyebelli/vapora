@@ -25,6 +25,10 @@ export interface Recipe {
     es: string;
     en: string;
   };
+  origin?: {
+    es: string;
+    en: string;
+  };
   createdAt: string;
   updatedAt: string;
 }
