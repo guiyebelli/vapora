@@ -11,7 +11,7 @@ import { useLocalSearchParams, router } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { ChevronLeft, Heart, Share2, Clock, Star, Users, MapPin } from 'lucide-react-native';
 
-import { Text, Chip } from '@/components/ui';
+import { Text, Chip, Button } from '@/components/ui';
 import { useRecipeStore } from '@/store/useRecipeStore';
 import { useFavoritesStore } from '@/store/useFavoritesStore';
 import { useTheme, spacing, radius, colors } from '@/theme';
@@ -191,6 +191,18 @@ export default function RecipeDetailScreen() {
           </Text>
         </View>
 
+        {/* Cooking mode button */}
+        {recipe.steps.length > 0 && (
+          <View style={styles.cookingButtonContainer}>
+            <Button
+              title={t('cooking.startCooking')}
+              onPress={() => router.push(`/cooking/${recipe.id}`)}
+              variant="primary"
+              size="lg"
+            />
+          </View>
+        )}
+
         {/* Ingredients section */}
         <View style={styles.section}>
           <View style={styles.sectionHeaderRow}>
@@ -356,6 +368,10 @@ const styles = StyleSheet.create({
   section: {
     paddingHorizontal: spacing.md,
     paddingTop: spacing.lg,
+  },
+  cookingButtonContainer: {
+    paddingHorizontal: spacing.md,
+    paddingTop: spacing.md,
   },
   metadataRow: {
     flexDirection: 'row',

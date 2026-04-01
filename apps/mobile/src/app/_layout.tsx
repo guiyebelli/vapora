@@ -29,6 +29,7 @@ function RootStack() {
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="onboarding" />
         <Stack.Screen name="recipe/[id]" />
+        <Stack.Screen name="cooking/[id]" options={{ presentation: 'modal' }} />
         <Stack.Screen name="category/[id]" />
         <Stack.Screen name="search" />
         <Stack.Screen name="about" />
