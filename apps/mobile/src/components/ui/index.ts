@@ -8,3 +8,4 @@ export { SettingsRow, SettingsGroup, SectionLabel } from './SettingsRow';
 export { SelectorSheet } from './SelectorSheet';
 export { AnimatedLogo } from './AnimatedLogo';
 export { LoadingSpinner } from './LoadingSpinner';
+export { TipCard } from './TipCard';

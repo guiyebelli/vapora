@@ -36,6 +36,8 @@ function RootStack() {
         <Stack.Screen name="category/[id]" />
         <Stack.Screen name="search" />
         <Stack.Screen name="about" />
+        <Stack.Screen name="tips" />
+        <Stack.Screen name="tip/[id]" />
       </Stack>
       <StatusBar style={isDark ? 'light' : 'dark'} />
     </>

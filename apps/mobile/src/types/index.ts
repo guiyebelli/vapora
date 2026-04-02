@@ -8,3 +8,5 @@ export type {
   CategoryId,
   Category,
 } from './recipe';
+
+export type { Tip, TipCategory } from './tip';

@@ -200,6 +200,20 @@
     "finish": "Finalizar",
     "startCooking": "Iniciar modo cocina"
   },
+  "tips": {
+    "title": "Consejos",
+    "sectionTitle": "Consejos útiles",
+    "seeAll": "Ver todos",
+    "all": "Todos",
+    "usage": "Uso",
+    "cleaning": "Limpieza",
+    "maintenance": "Mantenimiento",
+    "safety": "Seguridad",
+    "hacks": "Trucos",
+    "tmSettings": "Configuración TM",
+    "compatibility": "Compatibilidad",
+    "share": "Compartir consejo"
+  },
   "about": {
     "title": "Sobre Vapora",
     "description": "Vapora es una app gratuita y de código abierto para explorar recetas optimizadas para Thermomix TM5 y TM6. Creada con ♡ por la comunidad.",

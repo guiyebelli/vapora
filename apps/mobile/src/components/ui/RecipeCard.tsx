@@ -19,14 +19,6 @@ function getCategoryInfo(categoryId: string) {
   return categories.find((c) => c.id === categoryId);
 }
 
-function getDifficultyLabel(difficulty: Recipe['difficulty']): string {
-  const map: Record<Recipe['difficulty'], string> = {
-    easy: 'Fácil',
-    medium: 'Media',
-    hard: 'Difícil',
-  };
-  return map[difficulty];
-}
 
 export function RecipeCard({
   recipe,
@@ -83,7 +75,7 @@ export function RecipeCard({
           </Text>
 
           <Text variant="caption" color={theme.text.secondary}>
-            {recipe.totalTime} min · {getDifficultyLabel(recipe.difficulty)}
+            {recipe.totalTime} min · {t(`difficulty.${recipe.difficulty}`)}
           </Text>
         </View>
 

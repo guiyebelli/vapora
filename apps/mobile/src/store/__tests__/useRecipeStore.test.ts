@@ -3,7 +3,7 @@ import { useRecipeStore } from '../useRecipeStore';
 describe('useRecipeStore', () => {
   it('should have seed recipes loaded', () => {
     const { recipes } = useRecipeStore.getState();
-    expect(recipes.length).toBe(31);
+    expect(recipes.length).toBe(32);
   });
 
   it('should get recipe by valid id', () => {
