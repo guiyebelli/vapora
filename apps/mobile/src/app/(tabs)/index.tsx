@@ -10,13 +10,14 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 
-import { Text, RecipeCard, Chip, Input, SectionHeader, AnimatedLogo } from '@/components';
+import { Text, RecipeCard, Chip, Input, SectionHeader, AnimatedLogo, TipCard } from '@/components';
 import { Search as SearchIcon } from 'lucide-react-native';
 import { useTheme, spacing } from '@/theme';
 import { useRecipeStore } from '@/store/useRecipeStore';
 import { useFavoritesStore } from '@/store/useFavoritesStore';
+import { useTipStore } from '@/store/useTipStore';
 import { categories } from '@/data/categories';
-import type { Recipe, Category } from '@/types';
+import type { Recipe, Category, Tip } from '@/types';
 
 const FEATURED_COUNT = 5;
 const CARD_WIDTH = 280;
@@ -26,6 +27,7 @@ export default function HomeScreen() {
   const { theme } = useTheme();
   const router = useRouter();
   const recipes = useRecipeStore((s) => s.recipes);
+  const tips = useTipStore((s) => s.tips);
   const { favoriteIds, addFavorite, removeFavorite } = useFavoritesStore();
 
   const featuredRecipes = recipes.slice(0, FEATURED_COUNT);
@@ -64,6 +66,26 @@ export default function HomeScreen() {
   const handleSearchPress = useCallback(() => {
     router.push('/search');
   }, [router]);
+
+  const handleTipPress = useCallback(
+    (id: string) => {
+      router.push(`/tip/${id}`);
+    },
+    [router],
+  );
+
+  const handleSeeAllTips = useCallback(() => {
+    router.push('/tips');
+  }, [router]);
+
+  const previewTips = tips.slice(0, 5);
+
+  const renderTipPreview = useCallback(
+    ({ item }: { item: Tip }) => (
+      <TipCard tip={item} onPress={() => handleTipPress(item.id)} compact />
+    ),
+    [handleTipPress],
+  );
 
   const renderCategoryChip = useCallback(
     ({ item }: { item: Category }) => (
@@ -147,6 +169,22 @@ export default function HomeScreen() {
           ItemSeparatorComponent={CardSeparator}
         />
 
+        {/* Tips preview */}
+        <SectionHeader
+          title={t('tips.sectionTitle')}
+          actionLabel={t('tips.seeAll')}
+          onAction={handleSeeAllTips}
+        />
+        <FlatList
+          data={previewTips}
+          keyExtractor={(item) => item.id}
+          renderItem={renderTipPreview}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.tipsList}
+          ItemSeparatorComponent={CardSeparator}
+        />
+
         {/* Recent */}
         <SectionHeader title={t('home.recent')} />
         {recentRecipes.map((recipe) => (
@@ -211,6 +249,10 @@ const styles = StyleSheet.create({
   },
   cardSeparator: {
     width: spacing.md,
+  },
+  tipsList: {
+    paddingHorizontal: spacing.md,
+    paddingBottom: spacing.md,
   },
   recentCard: {
     paddingHorizontal: spacing.md,

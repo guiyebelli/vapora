@@ -5924,5 +5924,220 @@ export const recipes: Recipe[] = [
     },
     "createdAt": "2026-03-31",
     "updatedAt": "2026-03-31"
+  },
+  {
+    "id": "rec_032",
+    "slug": "sweet-potato-paste",
+    "title": {
+      "es": "Dulce de batata argentino",
+      "en": "Argentine sweet potato paste"
+    },
+    "description": {
+      "es": "Dulce de batata (boniato/camote) al estilo argentino, similar al dulce de membrillo. Se cocina al vapor y luego se cuaja con agar-agar. Perfecto con queso, pan o solo como postre.",
+      "en": "Argentine-style sweet potato paste, similar to quince paste. Steamed and then set with agar-agar. Perfect with cheese, bread, or on its own as a dessert."
+    },
+    "image": "sweet-potato-paste.jpg",
+    "category": "desserts",
+    "tags": [
+      "vegan",
+      "gluten-free",
+      "dairy-free",
+      "meal-prep",
+      "argentino",
+      "dulce",
+      "conserva",
+      "sweet potato",
+      "paste",
+      "preserve"
+    ],
+    "difficulty": "medium",
+    "totalTime": 80,
+    "prepTime": 10,
+    "cookTime": 70,
+    "servings": 12,
+    "thermomixModel": [
+      "TM5",
+      "TM6"
+    ],
+    "accessories": [
+      "varoma",
+      "basket"
+    ],
+    "ingredients": [
+      {
+        "id": "ing_032_01",
+        "name": {
+          "es": "Batata (boniato/camote)",
+          "en": "Sweet potato"
+        },
+        "amount": 1000,
+        "unit": "g",
+        "optional": false,
+        "group": "cocción"
+      },
+      {
+        "id": "ing_032_02",
+        "name": {
+          "es": "Agua para el Varoma",
+          "en": "Water for Varoma"
+        },
+        "amount": 500,
+        "unit": "ml",
+        "optional": false,
+        "group": "cocción"
+      },
+      {
+        "id": "ing_032_03",
+        "name": {
+          "es": "Azúcar",
+          "en": "Sugar"
+        },
+        "amount": 700,
+        "unit": "g",
+        "optional": false,
+        "group": "dulce"
+      },
+      {
+        "id": "ing_032_04",
+        "name": {
+          "es": "Zumo de limón",
+          "en": "Lemon juice"
+        },
+        "amount": 20,
+        "unit": "g",
+        "optional": false,
+        "group": "dulce"
+      },
+      {
+        "id": "ing_032_05",
+        "name": {
+          "es": "Agar-agar",
+          "en": "Agar-agar"
+        },
+        "amount": 4,
+        "unit": "g",
+        "optional": false,
+        "group": "dulce"
+      },
+      {
+        "id": "ing_032_06",
+        "name": {
+          "es": "Vainilla líquida",
+          "en": "Liquid vanilla"
+        },
+        "amount": 1,
+        "unit": "cdta",
+        "optional": true,
+        "group": "dulce"
+      }
+    ],
+    "steps": [
+      {
+        "id": "step_032_01",
+        "order": 1,
+        "instruction": {
+          "es": "Lavar bien las batatas sin pelar. Trocear en trozos gruesos y colocar en el recipiente Varoma.",
+          "en": "Wash the sweet potatoes well without peeling. Cut into thick chunks and place in the Varoma tray."
+        },
+        "tip": {
+          "es": "No pelar antes de cocinar — se pelan mucho más fácil después de cocidas.",
+          "en": "Don't peel before cooking — they peel much more easily after steaming."
+        }
+      },
+      {
+        "id": "step_032_02",
+        "order": 2,
+        "instruction": {
+          "es": "Añadir 500 ml de agua al vaso. Colocar el Varoma con las batatas encima. Programar 30 min / Temp. Varoma / Vel 1.",
+          "en": "Add 500 ml of water to the bowl. Place the Varoma with the sweet potatoes on top. Set 30 min / Varoma temp / Speed 1."
+        },
+        "thermomixSettings": {
+          "speed": 1,
+          "temperature": "varoma",
+          "time": 1800,
+          "accessory": "varoma"
+        },
+        "timer": 1800,
+        "tip": {
+          "es": "Si después de 30 minutos las batatas están duras, programar 10 minutos más.",
+          "en": "If the sweet potatoes are still hard after 30 minutes, set 10 more minutes."
+        }
+      },
+      {
+        "id": "step_032_03",
+        "order": 3,
+        "instruction": {
+          "es": "Retirar el Varoma. Pelar las batatas cocidas y pesar 1 kg. Vaciar el vaso y colocar las batatas peladas dentro.",
+          "en": "Remove the Varoma. Peel the cooked sweet potatoes and weigh 1 kg. Empty the bowl and place the peeled sweet potatoes inside."
+        }
+      },
+      {
+        "id": "step_032_04",
+        "order": 4,
+        "instruction": {
+          "es": "Añadir 700 g de azúcar y el zumo de limón. Triturar 30 seg / Vel progresiva 5-10.",
+          "en": "Add 700 g of sugar and the lemon juice. Blend 30 sec / Progressive speed 5-10."
+        },
+        "thermomixSettings": {
+          "speed": 10,
+          "time": 30
+        }
+      },
+      {
+        "id": "step_032_05",
+        "order": 5,
+        "instruction": {
+          "es": "Cocinar 20 min / 100°C / Vel 5. Colocar el cestillo en lugar del cubilete para favorecer la evaporación.",
+          "en": "Cook 20 min / 100°C / Speed 5. Place the simmering basket instead of the measuring cup to help evaporation."
+        },
+        "thermomixSettings": {
+          "speed": 5,
+          "temperature": 100,
+          "time": 1200,
+          "accessory": "basket"
+        },
+        "timer": 1200,
+        "tip": {
+          "es": "El cestillo en lugar del cubilete evita salpicaduras y deja salir el vapor para que espese mejor.",
+          "en": "The basket instead of the measuring cup prevents splashing and lets steam escape for better thickening."
+        }
+      },
+      {
+        "id": "step_032_06",
+        "order": 6,
+        "instruction": {
+          "es": "Añadir el agar-agar y la vainilla. Volver a colocar el cestillo. Programar 10 min / 100°C / Vel 5.",
+          "en": "Add the agar-agar and vanilla. Place the basket back. Set 10 min / 100°C / Speed 5."
+        },
+        "thermomixSettings": {
+          "speed": 5,
+          "temperature": 100,
+          "time": 600
+        },
+        "timer": 600
+      },
+      {
+        "id": "step_032_07",
+        "order": 7,
+        "instruction": {
+          "es": "Verter en moldes o tuppers de cristal. Dejar enfriar a temperatura ambiente y refrigerar mínimo 4 horas (ideal toda la noche).",
+          "en": "Pour into glass molds or containers. Let cool to room temperature and refrigerate for at least 4 hours (overnight is best)."
+        },
+        "tip": {
+          "es": "Se conserva en la nevera mucho tiempo. También se puede congelar directamente en el tupper.",
+          "en": "Keeps in the fridge for a long time. Can also be frozen directly in the container."
+        }
+      }
+    ],
+    "tips": {
+      "es": "Receta argentina clásica. La proporción es 1 kg de fruta por 700 g de azúcar, igual que para mermeladas o dulce de membrillo. Se puede tomar con queso, pan, o solo. La batata puede ser naranja, roja o blanca — cualquiera sirve.",
+      "en": "Classic Argentine recipe. The ratio is 1 kg fruit to 700 g sugar, same as for jams or quince paste. Can be eaten with cheese, bread, or on its own. Any sweet potato variety works — orange, red, or white."
+    },
+    "origin": {
+      "es": "Argentina",
+      "en": "Argentina"
+    },
+    "createdAt": "2026-04-02",
+    "updatedAt": "2026-04-02"
   }
 ];
